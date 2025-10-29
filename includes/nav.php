@@ -1,16 +1,24 @@
+<?php require('actions/database.php');?>
+
 <nav>
     <div>
-        <a href=""><img src="images/logo.png" alt=""></a>
-        <button>Les flashcards</button>
-        <div id="dropdownMenu">
-            <ul>
-                <li><a href="">Les Flashcards</a></li>
-                <li><a href="">Mes Flashcards</a></li>
-            </ul>
-        </div>
+        <a href="index.php"><img src="images/logo.png" alt=""></a>
+        <a href="">Les Flashcards</a>
+        <a href="">Mes Flashcards</a>
     </div>
     <div>
-        <button>+ Créer</button>
-        <button onclick="openLoginMenu(true)">Se Connecter</button>
+        <a href="createFlashCard.php">+ Créer</a>
+        <?php
+            if(isset($_SESSION['auth'])){
+        ?>
+            <a href="actions/logoutAction.php"><img src="images/disconnect.png" alt=""></a>
+        <?php
+        }
+        else{
+        ?>
+            <button onclick="openLoginMenu(true)">Se Connecter</button>
+        <?php  
+        }
+        ?>
     </div>
 </nav>

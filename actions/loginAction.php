@@ -1,10 +1,10 @@
 <?php
 if(isset($_POST['submit'])){
     //Vérification des champs
-    if(!empty($_POST["email"]) && !empty($_POST["password"]))
+    if(!empty($_POST["mail"]) && !empty($_POST["password"]))
     {
         //Données de user
-        $user_mail = htmlspecialchars($_POST['email']);
+        $user_mail = htmlspecialchars($_POST['mail']);
         $user_username = htmlspecialchars($_POST['username']);
         $user_password = htmlspecialchars($_POST['password']);
 
@@ -22,7 +22,8 @@ if(isset($_POST['submit'])){
                 //auth user
                 $_SESSION['auth'] = true;
                 $_SESSION['id'] = $usersInfos['id'];
-                $_SESSION['email'] = $usersInfos['mail'];
+                $_SESSION['username'] = $usersInfos['username'];
+                $_SESSION['mail'] = $usersInfos['mail'];
 
             }else
             {
@@ -30,7 +31,12 @@ if(isset($_POST['submit'])){
         }else
         {
             $insertUser = $bdd->prepare('INSERT INTO unicard_users(username, mail, password) VALUES(?, ?, ?)');
-            $insertUser->execute(array($user_username, $user_mail, $user_password));
+            $insertUser->execute(array($user_username, $user_mail, password_hash($user_password, PASSWORD_DEFAULT)));
+
+            $_SESSION['auth'] = true;
+            $_SESSION['id'] = $usersInfos['id'];
+            $_SESSION['username'] = $usersInfos['username'];
+            $_SESSION['mail'] = $usersInfos['mail'];
         }
 
     }

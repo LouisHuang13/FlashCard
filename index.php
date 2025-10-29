@@ -1,4 +1,4 @@
-<?php 
+<?php
     require('actions/database.php');
     require('actions/loginAction.php');
 ?>
@@ -15,6 +15,11 @@
     <?php require_once('includes/nav.php')?>
     <?php require_once('includes/login.php')?>
 
+    <h1></h1>
+    <p></p>
+    <div>
+
+    </div>
     <script src="scripts/script.js"></script>
 </body>
 </html>

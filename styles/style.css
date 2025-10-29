@@ -18,14 +18,14 @@ a {
 }
 
 nav {
-    width: 100%; height: 5dvh;
-    padding: 2.5%;
+    width: 100%; height: 10dvh;
+    padding:  2.5%;
 
     background-color: #fafafa;
     border-top: 3px solid #DF6252;
 
     position: fixed; top : 0; left: 0;
-    display: flex; justify-content: space-between;
+    display: flex; justify-content: space-between; align-items: center;
     z-index: 999;
 }
 
@@ -35,31 +35,28 @@ nav > div > a > img{
 }
 
 nav > div {
-    display: flex; align-items: center; justify-content: space-around;
-    width: 20%;
+    display: flex; align-items: center; justify-content: flex-end;
+    width: 30%;
 }
 
 nav > div:last-of-type > button:last-of-type {
     
-    width: 50%;
+    width: 30%;
     background-color: #DF6252; color: #FBFBF2; font-family: 'Montserrat'; font-weight: bold;
     border: none; border-radius: 5dvh;
 
-    padding: 5%; margin: 5%;
+    padding: 4%; margin: 5%;
 }
 
 nav > div:last-of-type > button:last-of-type:hover {
     background-color: #b3493b;
 }
 
-nav > div > button {
+nav > div > a, nav > div > button {
     background: none; border: none;
     color: #DF6252; font-weight: bold;
     
-}
-
-nav > div:first-of-type > button:hover ~ div {
-    transform: translateY(10dvh);
+    padding: 5%;
 }
 
 nav > div:first-of-type > div{
@@ -72,19 +69,25 @@ nav > div:first-of-type > div{
     padding: 2%;
 }
 
+nav > div:last-of-type > a > img {
+    width: 4dvh; height: 4dvh;
+}
+
 button:hover, input:hover {
 
     cursor: pointer;
 }
 
 label {
-    color: #DF6252;
+    color: #DF6252; font-weight: bold;
+
+    margin: 1%;
 }
 
 /* CONNEXION */
 
 #login {
-    position: fixed;
+    position: fixed; top: 0;
     width: 100%; height: 100dvh;
     
     display: flex; justify-content: flex-end; align-items: center;
@@ -150,4 +153,93 @@ label {
 
 #login > button:hover {
     scale: 1.1;
+}
+
+/* Create Flashcard */
+
+#create {
+    width: 100%; height: 100dvh;
+
+    display: flex; justify-content: space-evenly; align-content: center;
+}
+
+#create > div:first-of-type{
+    width: 30%; 
+}
+
+#create > div:last-of-type{
+    width: 70%; min-height: 100%;
+
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+}
+
+
+#create > div:first-of-type > form {
+    width: 100%; min-height: 100%;
+    padding: 5%;
+
+    display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
+}
+
+#create > div:first-of-type > form > input[type="text"] {
+    width: 100%;
+    padding: 3%;
+
+    background-color: #f8f4f4; border-radius: 2dvh;
+    color: #DF6252; font-weight: bold;
+    border: none;
+
+}
+
+#create > div:first-of-type > form > textarea {
+    width: 100%; height: 20dvh;
+    padding: 3%;
+
+    background-color: #f8f4f4; border-radius: 2dvh;
+    color: #DF6252; font-weight: bold;
+    border: none;
+
+    resize: none;
+
+}
+
+#create > div:last-of-type > form {
+    width: 100%; min-height: 100%;
+
+    display: flex; justify-content: center; align-items: center;
+}
+
+#create > div:last-of-type > form > div {
+    width: 80%; height: 35dvh;
+    padding: 2%;
+
+    background-color: #f8f4f4; border-radius: 5dvh;
+    border: none;
+
+    display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
+}
+
+#create > div:last-of-type > div > form{
+    width: 100%;
+
+    display: flex; flex-direction: column;
+}
+
+#create > div:last-of-type > form > div > input[type="text"] {
+    width: 100%;
+    padding: 2%;
+
+    background-color: #fafafa; border-radius: 2dvh;
+    color: #DF6252; font-weight: bold;
+    border: none;
+}
+
+#create > div:last-of-type > form > div > input[type="submit"] {
+    width: 10%;
+    padding: 1%; margin: 2% 0;
+
+    background-color: #DF6252; border-radius: 2dvh; color: #fafafa; font-weight: bold; font-size: 1.2rem;
+    border: none;
+
+    align-self: flex-end;
 }

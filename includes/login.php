@@ -8,8 +8,8 @@
                 <input type="email" name="mail">
             </div>
             <div>
-                <label for="mail">Identifiant</label>
-                <input type="text" name="id">
+                <label for="username">Identifiant</label>
+                <input type="text" name="username">
             </div>
             <div>
                 <label for="mail">Mot de passe</label>
