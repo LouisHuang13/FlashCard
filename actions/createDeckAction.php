@@ -1,5 +1,5 @@
 <?php
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+if(isset($_POST['submitDeck'])){
 
         $deck_title = htmlspecialchars($_POST['title']);
         $deck_description = htmlspecialchars($_POST['description']);

@@ -22,7 +22,7 @@
                 <label for="description">Description</label>
                 <textarea name="description" required></textarea>
 
-                <input type="submit" value="Créer" name="submit">
+                <input type="submit" value="Créer" name="submitDeck">
             </form>
         </div>
         <div>
