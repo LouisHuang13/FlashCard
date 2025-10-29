@@ -28,14 +28,14 @@
         </div>
         <div>
             <form id="createDivForm" method="POST">
-                <select name="selectDeck">
+                <select name="selectDeck" onchange="getDeck(this.value)">
                     <?php
-                        $getAllDecks = $bdd->prepare('SELECT name FROM unicard_decks WHERE author = ?');
+                        $getAllDecks = $bdd->prepare('SELECT * FROM unicard_decks WHERE author = ?');
                         $getAllDecks->execute(array($_SESSION['username']));
                         
                         while($deck = $getAllDecks->fetch()){
                     ?>
-                        <option value="<?=$deck['name'];?>"><?=$deck['name'];?></option>
+                        <option value="<?=$deck['id'];?>"><?=$deck['name'];?></option>
                     <?php
                     }
                     ?>
