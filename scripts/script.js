@@ -1,7 +1,7 @@
 let loginMenu = document.getElementById('login');
 let createDivForm = document.getElementById('createDivForm');
 
-let count = 1;
+let count = 2;
 
 function openLoginMenu(parameter){
     if(parameter){

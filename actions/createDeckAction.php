@@ -1,6 +1,6 @@
 <?php
 if(isset($_POST['submitDeck'])){
-
+        
         $deck_title = htmlspecialchars($_POST['title']);
         $deck_description = htmlspecialchars($_POST['description']);
 
@@ -16,5 +16,6 @@ if(isset($_POST['submitDeck'])){
             $insertDeck = $bdd->prepare('INSERT INTO unicard_decks(name, description, author) VALUES(?, ?, ?)');
             $insertDeck->execute(array($deck_title, $deck_description, $_SESSION['username']));
         }
+
 }
 ?>
