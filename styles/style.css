@@ -1,0 +1,153 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../font/Montserrat.ttf');
+}
+html, body {
+    margin: 0; padding: 0;
+}
+
+*{
+    transition: .8s;
+    box-sizing: border-box;
+
+    font-family: 'Montserrat';
+}
+
+a {
+    text-decoration: none;
+}
+
+nav {
+    width: 100%; height: 5dvh;
+    padding: 2.5%;
+
+    background-color: #fafafa;
+    border-top: 3px solid #DF6252;
+
+    position: fixed; top : 0; left: 0;
+    display: flex; justify-content: space-between;
+    z-index: 999;
+}
+
+nav > div > a > img{
+    width: 10dvh; height: 10dvh;
+    padding: 5%;
+}
+
+nav > div {
+    display: flex; align-items: center; justify-content: space-around;
+    width: 20%;
+}
+
+nav > div:last-of-type > button:last-of-type {
+    
+    width: 50%;
+    background-color: #DF6252; color: #FBFBF2; font-family: 'Montserrat'; font-weight: bold;
+    border: none; border-radius: 5dvh;
+
+    padding: 5%; margin: 5%;
+}
+
+nav > div:last-of-type > button:last-of-type:hover {
+    background-color: #b3493b;
+}
+
+nav > div > button {
+    background: none; border: none;
+    color: #DF6252; font-weight: bold;
+    
+}
+
+nav > div:first-of-type > button:hover ~ div {
+    transform: translateY(10dvh);
+}
+
+nav > div:first-of-type > div{
+    position: absolute;
+    transform: translateY(-15dvh);
+    
+    z-index: -5;
+
+    background-color: #fafafa; border-radius: 5dvh;
+    padding: 2%;
+}
+
+button:hover, input:hover {
+
+    cursor: pointer;
+}
+
+label {
+    color: #DF6252;
+}
+
+/* CONNEXION */
+
+#login {
+    position: fixed;
+    width: 100%; height: 100dvh;
+    
+    display: flex; justify-content: flex-end; align-items: center;
+
+    background-color: #DF6252; color: #DF6252;
+    z-index: 999;
+
+    transform: translateY(-100dvh);
+    transition: 1.5s;
+}
+
+#login > div {
+    width: 25%; height: 65dvh;
+    margin: 5%;
+
+    border-radius: 5dvh;
+    background-color: #fafafa;
+
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+}
+
+#login > div > form {
+    display: flex; flex-direction: column;    justify-content: center;    align-items: center;
+    
+    width: 100%;
+    padding: 10%;
+
+}
+
+#login > div > form > div {
+    width: 100%;
+    padding: 3% 0;
+}
+
+#login > div > form > div > input {
+    width: 100%;
+    padding: 3%;
+
+    background-color: #eee9e9; border-radius: 5dvh; color: #DF6252;
+    border: none;
+}
+
+#login > div > form > input:last-of-type {
+    width: 100%;
+    padding: 5%;
+
+    background-color: #DF6252; border-radius: 5dvh; color: #fafafa; font-weight: bold;
+    border: none;
+}
+
+#login > div > form > input:last-of-type:hover {
+    background-color: #b3493b;
+}
+
+#login > button {
+    background: none; border: none;
+    color:#fafafa; font-weight: bold; font-size: 1.5rem;
+    
+    position: absolute; top : 0; right: 0;
+    padding: 2%;
+}
+
+
+#login > button:hover {
+    scale: 1.1;
+}
