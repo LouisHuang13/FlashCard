@@ -1,7 +1,6 @@
 <?php
-if(isset($_POST['submit'])){
-    
-        header('Location: index.php');
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+
         $deck_title = htmlspecialchars($_POST['title']);
         $deck_description = htmlspecialchars($_POST['description']);
 
