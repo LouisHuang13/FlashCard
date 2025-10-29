@@ -203,15 +203,36 @@ label {
 
 }
 
+#create > div:first-of-type > form > input[type="submit"] {
+
+    width: 20%;
+    padding: 1%; margin: 2% 0;
+
+    background-color: #DF6252; border-radius: 1dvh; color: #fafafa; font-weight: bold; font-size: 1.2rem;
+    border: none;
+
+}
+
+#create > div:last-of-type > form > button {
+    position: fixed;    bottom :0; right: 0;
+    margin: 2%;
+    width: 5dvh; height: 5dvh;
+
+    background-color: #DF6252; color:#fafafa; font-size: 1.5rem; font-weight: bold;
+    border-radius: 5dvh;
+    border: none;
+}
+
 #create > div:last-of-type > form {
     width: 100%; min-height: 100%;
 
-    display: flex; justify-content: center; align-items: center;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    overflow-y: scroll;
 }
 
 #create > div:last-of-type > form > div {
     width: 80%; height: 35dvh;
-    padding: 2%;
+    padding: 2%; margin: 1%;
 
     background-color: #f8f4f4; border-radius: 5dvh;
     border: none;
@@ -234,11 +255,13 @@ label {
     border: none;
 }
 
-#create > div:last-of-type > form > div > input[type="submit"] {
-    width: 10%;
-    padding: 1%; margin: 2% 0;
+#create > div:last-of-type > form > input[type="submit"] {
+    position: fixed;    bottom : 0; right: 5%;
 
-    background-color: #DF6252; border-radius: 2dvh; color: #fafafa; font-weight: bold; font-size: 1.2rem;
+    width: 10%;
+    padding: 1%; margin: 2%;
+
+    background-color: #DF6252; border-radius: 2dvh; color: #fafafa; font-weight: bold;
     border: none;
 
     align-self: flex-end;

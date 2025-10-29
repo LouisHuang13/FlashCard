@@ -1,4 +1,6 @@
 <?php
+    require('actions/database.php');
+    require('actions/createDeckAction.php');
 ?>
 
 <!DOCTYPE html>
@@ -15,25 +17,28 @@
         <div>
             <form>
                 <label for="title">Titre du deck</label>
-                <input type="text" name="title">
+                <input type="text" name="title" required>
 
                 <label for="description">Description</label>
-                <textarea name="description"></textarea>
+                <textarea name="description" required></textarea>
+
+                <input type="submit" value="Créer" name="submit">
             </form>
         </div>
         <div>
-            <form>
+            <form id="createDivForm">
                 <div>
                     <label for="cardContent">Terme</label>
                     <input type="text" name="cardContent">
                     
                     <label for="cardContent">Définition</label>
                     <input type="text" name="cardDefinition">
-
-                    <input type="submit" value="Créer">
                 </div>    
+                <button onclick="addCard()">+</button>
+                <input type="submit" value="Créer">
             </form>
         </div>
     </section>
+    <script src="scripts/script.js"></script>
 </body>
 </html>
