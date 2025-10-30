@@ -1,6 +1,7 @@
 <?php
     require('actions/database.php');
     require('actions/createDeckAction.php');
+    require('actions/createFlashCardAction.php');
 ?>
 
 <!DOCTYPE html>
@@ -43,16 +44,10 @@
                 </select>
                 
                 <div id="cards">
-                    <div>
-                        <label for="cardContent">Terme</label>
-                        <input type="text" name="cardContent">
-                        
-                        <label for="cardContent">Définition</label>
-                        <input type="text" name="cardDefinition">
-                    </div>
                 </div>
-
-                <button onclick="addCard()">+</button>
+                    
+                <input type="hidden" name="count" id="count" value="0">
+                <button onclick="addCard(event)">+</button>
                 <input type="submit" value="Créer" name="submitCards">
             </form>
         </div>
