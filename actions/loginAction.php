@@ -33,6 +33,11 @@ if(isset($_POST['submit'])){
             $insertUser = $bdd->prepare('INSERT INTO unicard_users(username, mail, password) VALUES(?, ?, ?)');
             $insertUser->execute(array($user_username, $user_mail, password_hash($user_password, PASSWORD_DEFAULT)));
 
+            $getUserInfos = $bdd->prepare('SELECT * FROM unicard_users WHERE mail = ?');
+            $getUserInfos->execute(array($user_mail));
+
+            $usersInfos = $getUserInfos->fetch();
+
             $_SESSION['auth'] = true;
             $_SESSION['id'] = $usersInfos['id'];
             $_SESSION['username'] = $usersInfos['username'];
