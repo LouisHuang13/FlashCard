@@ -26,7 +26,14 @@
             ?>
                 <a href='deck.php?id=<?= $deckCount?>'>
                     <div class="deckCard">
+                        <?php 
+                            $getCardCount = $bdd->prepare('SELECT id FROM unicard_cards WHERE id_deck = ?');
+                            $getCardCount->execute(array($deckCount));
+
+                            $cardCount = count($getCardCount->fetchAll());
+                        ?>
                         <h3><?=$decksStart['name']?></h3>
+                        <p><?= $cardCount?> termes</p>
                         <p><?=$decksStart['author']?></p>
                     </div>
                 </a>
