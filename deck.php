@@ -36,9 +36,9 @@
         ?>
     </section>
     <div id="counters">
-        <div>En cours</div>
-        <div>19/30</div>
-        <div>Appris</div>
+        <div class="countersContainer"></div>
+        <div class="countersContainer"></div>
+        <div class="countersContainer"></div>
     </div>
     <div id="progressBar">
     </div>

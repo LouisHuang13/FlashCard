@@ -5,6 +5,9 @@ let cardTotal = document.getElementById('cardCounter').value;
 let cardCounter = document.getElementById('cardCounter').value - 1;
 let progression = 0;
 
+let enCours = 0;
+let acquis = 0;
+
 function openLoginMenu(parameter){
     if(parameter){
         document.getElementById('login').style.transform = 'unset';
@@ -69,18 +72,31 @@ function flipCard(number){
     document.getElementsByClassName('cardContent')[number].style.transform += 'rotateY(180deg)';
 }
 
+document.getElementsByClassName('countersContainer')[0].innerHTML = enCours+'/'+cardTotal;
+document.getElementsByClassName('countersContainer')[1].innerHTML = progression+'/'+cardTotal;
+document.getElementsByClassName('countersContainer')[2].innerHTML = acquis+'/'+cardTotal;
 
 document.addEventListener("keydown", function(event) {
     if(cardCounter >= 0){
         if (event.key === "ArrowRight") {
             document.getElementsByClassName('card')[cardCounter].style.transform = 'translateX(150%)';
             document.getElementById('progressBar').style.transform += 'translateX('+ 100/cardTotal +'%)';
-            cardCounter --;
+    
+            cardCounter --; acquis++;
+            document.getElementsByClassName('countersContainer')[2].innerHTML = acquis+'/'+cardTotal;
+
+            progression++;
+            document.getElementsByClassName('countersContainer')[1].innerHTML = progression+'/'+cardTotal;
         }else if (event.key === "ArrowLeft") {
             document.getElementsByClassName('card')[cardCounter].style.transform = 'translateX(-150%)';
             document.getElementById('progressBar').style.transform += 'translateX('+ 100/cardTotal +'%)';
-            cardCounter --;
+            cardCounter --; enCours++;
+            document.getElementsByClassName('countersContainer')[0].innerHTML = enCours+'/'+cardTotal;
+
+            progression++;
+            document.getElementsByClassName('countersContainer')[1].innerHTML = progression+'/'+cardTotal;
         }
+
     }
 });
 
