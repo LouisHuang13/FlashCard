@@ -24,7 +24,7 @@ nav {
     background-color: #fafafa;
     border-top: 3px solid #DF6252;
 
-    position: fixed; top : 0; left: 0;
+    position: sticky; top : 0; left: 0;
     display: flex; justify-content: space-between; align-items: center;
     z-index: 999;
 }
@@ -274,4 +274,24 @@ label {
     border: none;
 
     align-self: flex-end;
+}
+
+/* Flashcards */
+
+#searchPage > form {
+    width: 100%;
+    display: flex; justify-content: center; align-items: center;
+}
+
+#searchPage > form > input[type="search"]{
+    width: 40%;
+    padding: 1%; margin: 1%;
+
+    background-color: #DF6252; border-radius: 2dvh; color: #fafafa; font-weight: bold;
+    border: none;
+    transition: 1s;
+}
+
+input[type="search"]::placeholder{
+    color: #fafafa;
 }

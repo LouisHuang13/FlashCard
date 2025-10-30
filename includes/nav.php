@@ -3,7 +3,7 @@
 <nav>
     <div>
         <a href="index.php"><img src="images/logo.png" alt=""></a>
-        <a href="">Les Flashcards</a>
+        <a href="flashcards.php">Les Flashcards</a>
         <a href="">Mes Flashcards</a>
     </div>
     <div>
