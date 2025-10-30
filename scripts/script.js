@@ -1,35 +1,35 @@
-let loginMenu = document.getElementById('login');
-let createDivForm = document.getElementById('createDivForm');
 
-let count = 2;
+let count = 1;
 
 function openLoginMenu(parameter){
     if(parameter){
-        loginMenu.style.transform = 'unset';
+        document.getElementById('login').style.transform = 'unset';
     }
     else{
-        loginMenu.style.transform = 'translateY(-100dvh)';
+        document.getElementById('login').style.transform = 'translateY(-100dvh)';
     }
 }
 
 function addCard(){
     count++;
-    createDivForm.innerHTML += '<div><p>'+ count +'</p><label for="cardContent">Terme</label><input type="text" name="cardContent"><label for="cardContent">Définition</label><input type="text" name="cardDefinition"></div>';
+    document.getElementById('cards').innerHTML += '<div><p>'+ count +'</p><label for="cardContent">Terme</label><input type="text" name="cardContent"><label for="cardContent">Définition</label><input type="text" name="cardDefinition"></div>';
 
 }
 
-function getDeck(deckId){
+function getDeck(deckId) {
+    document.getElementById('cards').innerHTML = "";
     let formData = new FormData();
     formData.append("deckId", deckId);
-
-    fetch("actions/getDeckId.php", { // Envoie les données au php
+    
+    fetch("actions/getDeckId.php", {
         method: "POST",
         body: formData
     })
-    .then(response => response.json()) 
+    .then(response => response.json())
     .then(data => {
-        console.log(data);
-               
+        data.cards.forEach((card, index) => {
+            document.getElementById('cards').innerHTML += `<div><label for="cardContent">Terme</label><input type="text" value="${card.side1}" name="cardContent${index + 1}"><label for="cardContent">Définition</label><input type="text" value="${card.side2}" name="cardDefinition${index + 1}"></div>`;
+        });
     })
     .catch(error => console.error("Erreur :", error));
 }

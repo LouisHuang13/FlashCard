@@ -13,6 +13,7 @@
 </head>
 <body>
     <?php require_once('includes/nav.php')?>
+    <script src="scripts/script.js"></script>
     <section id="create">
         <div>
             <form method="POST">
@@ -21,7 +22,7 @@
                 <input type="text" name="title" required>
 
                 <label for="description">Description</label>
-                <textarea name="description" required></textarea>
+                <textarea name="description"></textarea>
 
                 <input type="submit" value="Créer" name="submitDeck">
             </form>
@@ -41,15 +42,14 @@
                     ?>
                 </select>
                 
-                <?php
-                
-                ?>
-                <div>
-                    <label for="cardContent">Terme</label>
-                    <input type="text" name="cardContent">
-                    
-                    <label for="cardContent">Définition</label>
-                    <input type="text" name="cardDefinition">
+                <div id="cards">
+                    <div>
+                        <label for="cardContent">Terme</label>
+                        <input type="text" name="cardContent">
+                        
+                        <label for="cardContent">Définition</label>
+                        <input type="text" name="cardDefinition">
+                    </div>
                 </div>
 
                 <button onclick="addCard()">+</button>
@@ -57,6 +57,6 @@
             </form>
         </div>
     </section>
-    <script src="scripts/script.js"></script>
+    
 </body>
 </html>

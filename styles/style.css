@@ -209,10 +209,10 @@ label {
 
 #create > div:first-of-type > form > input[type="submit"] {
 
-    width: 20%;
-    padding: 1%; margin: 2% 0;
+    width: 30%;
+    padding: 5%; margin: 2% 0;
 
-    background-color: #DF6252; border-radius: 2dvh; color: #fafafa; font-weight: bold; font-size: 1.2rem;
+    background-color: #DF6252; border-radius: 2dvh; color: #fafafa; font-weight: bold; 
     border: none;
 
 }
@@ -234,7 +234,12 @@ label {
     overflow-y: scroll;
 }
 
-#create > div:last-of-type > form > div {
+#cards {
+    width: 100%;
+
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+}
+#create > div:last-of-type > form > div > div {
     width: 80%; height: 35dvh;
     padding: 2%; margin: 1%;
 
@@ -250,7 +255,7 @@ label {
     display: flex; flex-direction: column;
 }
 
-#create > div:last-of-type > form > div > input[type="text"] {
+#create > div:last-of-type > form > div > div > input[type="text"] {
     width: 100%;
     padding: 2%;
 
