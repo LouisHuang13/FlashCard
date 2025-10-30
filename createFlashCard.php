@@ -2,6 +2,10 @@
     require('actions/database.php');
     require('actions/createDeckAction.php');
     require('actions/createFlashCardAction.php');
+
+    if($_SESSION['auth'] == false){
+        header('Location: index.php');
+    }
 ?>
 
 <!DOCTYPE html>

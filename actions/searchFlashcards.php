@@ -1,6 +1,7 @@
 <?php 
 require("database.php");
-$getAllDecks = $bdd->query('SELECT * FROM unicard_decks ORDER BY id DESC');
+$getAllDecksStart = $bdd->query('SELECT * FROM unicard_decks ORDER BY id DESC');
+$getAllDecksCount = $bdd->query('SELECT id FROM unicard_decks ORDER BY id DESC');
 
 if($_SERVER["REQUEST_METHOD"] == "POST") 
 {

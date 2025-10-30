@@ -1,6 +1,10 @@
 <?php
     require('actions/database.php');
     require('actions/loginAction.php');
+
+    if($_SESSION['auth']){
+        header('Location: flashcards.php');
+    }
 ?>
 
 <!DOCTYPE html>
@@ -14,12 +18,11 @@
 <body>
     <?php require_once('includes/nav.php')?>
     <?php require_once('includes/login.php')?>
-
-    <h1></h1>
-    <p></p>
-    <div>
-
-    </div>
+    <section id="mainSection">
+        <h1>Une façon plus ludique d'apprendre</h1>
+        <p>Maîtrisez tout ce que vous devez apprendre grâce aux flashcards interactives de Uni'Card</p>
+        <button onclick="openLoginMenu(true)">S'inscrire gratuitement</button>
+    </section>
     <script src="scripts/script.js"></script>
 </body>
 </html>

@@ -15,6 +15,7 @@ html, body {
 
 a {
     text-decoration: none;
+    transition: 1s;
 }
 
 .hoverLink:hover {
@@ -91,6 +92,32 @@ label {
     color: #DF6252; font-weight: bold;
 
     margin: 1%;
+}
+/* MAIN */
+
+#mainSection {
+    width: 100%; height: 80dvh;
+
+    display: flex; justify-content: center; align-items: center; flex-direction: column;
+    font-size: 1.5rem;
+}
+
+#mainSection > h1{
+    font-size: 3rem;
+    color: #DF6252;
+    margin: 0;
+}
+
+#mainSection > p {
+    width: 40%;
+    text-align: center;
+}
+
+#mainSection > button {
+    width: 30%;
+    padding: 1%;
+    background-color: #DF6252; color: #fafafa; font-size: 1.2rem; font-weight: bold;
+    border: none; border-radius: 5dvh;
 }
 
 /* CONNEXION */
@@ -325,6 +352,7 @@ input[type="search"]::placeholder{
 .deckCard:hover {
     background-color: #DF6252; color: #fafafa;
     scale: 1.05;
+    box-shadow: 0 0 5dvh #df63527c;
 }
 
 #decksContainer > a {

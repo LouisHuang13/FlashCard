@@ -1,3 +1,11 @@
+<?php
+    require('actions/searchFlashcards.php');
+    $deckCount = 0;
+    while($countDeck = $getAllDecksCount->fetch()){
+        $deckCount++;
+    }
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +22,18 @@
         </form>
         <div id="decksContainer">
             <hr>
+            <?php while($decksStart = $getAllDecksStart->fetch()){
+            ?>
+                <a href='deck.php?id=<?= $deckCount?>'>
+                    <div class="deckCard">
+                        <h3><?=$decksStart['name']?></h3>
+                        <p><?=$decksStart['author']?></p>
+                    </div>
+                </a>
+            <?php
+            $deckCount--;
+            }
+            ?>
         </div>
     </section>
     <script src="scripts/script.js"></script>
