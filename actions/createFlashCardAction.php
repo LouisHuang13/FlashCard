@@ -1,9 +1,10 @@
 <?php
 if(isset($_POST['submitCards'])){
-        for ($i=1; $i < $_POST['count']; $i++) { 
+        for ($i=1; $i <= $_POST['count']; $i++) { 
                 
                 $cardTitle = 'cardContent'.$i;
                 $cardDesc = 'cardContent'.$i;
+                $deckId = $_POST["selectDeck"];
 
                 $checkIfCardExists = $bdd->prepare('SELECT * FROM unicard_cards WHERE id_deck = ? AND side1 = ? AND side2 = ?');
                 $checkIfCardExists->execute(array($deckId, $_POST[$cardTitle], $_POST[$cardDesc]));
