@@ -43,7 +43,7 @@
                     ?>
                 </select>
                 
-                <div id="cards">
+                <div id="cardList">
                 </div>
                     
                 <input type="hidden" name="count" id="count" value="0">
