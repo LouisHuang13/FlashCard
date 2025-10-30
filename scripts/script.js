@@ -38,3 +38,25 @@ function addCard(event){
     document.getElementById('cards').innerHTML += '<div><p>'+ lastCard +'</p><label for="cardContent'+lastCard+'">Terme</label><input type="text" name="cardContent'+lastCard+'"><label for="cardContent'+lastCard+'">Définition</label><input type="text" name="cardDefinition'+lastCard+'"><input type="hidden" name="cardId'+cardId+'" value="'+cardId+'"></div>';
 
 }
+
+// Search
+
+function search(search) {
+    
+    let formData = new FormData();
+    formData.append("search", search);
+    
+    fetch("actions/searchFlashcards.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('decksContainer').innerHTML = "<hr>";
+        for (let index = 0; index < data.decks.length; index++) {
+            document.getElementById('decksContainer').innerHTML += `<a href=""><div class="deckCard"><h3>${data.decks[index].name}</h3><p>${data.decks[index].author}</p></div></a>`;
+        }
+    })
+    .catch(error => console.error("Erreur :", error));
+}
+

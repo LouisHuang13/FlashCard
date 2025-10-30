@@ -17,6 +17,13 @@ a {
     text-decoration: none;
 }
 
+.hoverLink:hover {
+    padding: 3%;
+
+    background-color: #DF6252; color: #fafafa;
+    border-radius: 2dvh;
+}
+
 nav {
     width: 100%; height: 10dvh;
     padding:  2.5%;
@@ -35,8 +42,8 @@ nav > div > a > img{
 }
 
 nav > div {
-    display: flex; align-items: center; justify-content: flex-end;
-    width: 30%;
+    display: flex; align-items: center; justify-content: center;
+    width: 40%;
 }
 
 nav > div:last-of-type > button:last-of-type {
@@ -55,8 +62,10 @@ nav > div:last-of-type > button:last-of-type:hover {
 nav > div > a, nav > div > button {
     background: none; border: none;
     color: #DF6252; font-weight: bold;
+
+    border-radius: 2dvh;
     
-    padding: 5%;
+    margin: 5%;
 }
 
 nav > div:first-of-type > div{
@@ -295,3 +304,37 @@ label {
 input[type="search"]::placeholder{
     color: #fafafa;
 }
+
+#decksContainer{
+    width: 75%;
+    margin: 0 auto;
+
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+}
+
+.deckCard {
+    width: 100%; height: 25dvh;
+    padding: 5%;
+    
+    display: flex; justify-content: center; align-items: flex-start; flex-direction: column;
+    background-color: #f8f4f4; color: #DF6252; font-size: 1.2rem; font-weight: bold;
+    border-radius: 3dvh; border: none;
+    transition: 1s;
+}
+
+.deckCard:hover {
+    background-color: #DF6252; color: #fafafa;
+    scale: 1.05;
+}
+
+#decksContainer > a {
+    width: 30%;
+    margin: 1%;
+}
+
+#decksContainer > hr {
+    width: 100%;
+    border: 1px solid #df635259;
+    border-radius: 5dvh;
+}
+

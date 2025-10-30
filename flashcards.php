@@ -10,8 +10,12 @@
     <?php require_once('includes/nav.php')?>
     <section id="searchPage">
         <form>
-            <input type="search" name="searchBar" placeholder="Recherchez...">
+            <input type="search" name="searchBar" placeholder="Recherchez..." oninput="search(this.value)">
         </form>
+        <div id="decksContainer">
+            <hr>
+        </div>
     </section>
+    <script src="scripts/script.js"></script>
 </body>
 </html>
