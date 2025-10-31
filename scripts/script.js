@@ -74,7 +74,7 @@ function search(search) {
     .then(data => {
         document.getElementById('decksContainer').innerHTML = "<hr>";
         for (let index = 0; index < data.decks.length; index++) {
-            document.getElementById('decksContainer').innerHTML += `<a href="deck.php?id=${data.decks[index].id}"><div class="deckCard"><h3>${data.decks[index].name}</h3><p>${data.decks[index].description}</p><div><p>${data.decks[index].author}</p><p></p></div></div></a>`;
+            document.getElementById('decksContainer').innerHTML += `<a href="deck.php?id=${data.decks[index].id}"><div class="deckCard"><h3>${data.decks[index].name}</h3><p>${data.decks[index].description}</p><div><p>${data.decks[index].author}</p><p>${data.decks[index].nbCards} termes</p></div></div></a>`;
         }
     })
     .catch(error => console.error("Erreur :", error));
