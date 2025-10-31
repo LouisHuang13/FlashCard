@@ -47,11 +47,15 @@ function getDeck(deckId) {
     .catch(error => console.error("Erreur :", error));
 }
 
+
 function addCard(event){
     event.preventDefault();
     lastCard++; cardId ++;
     document.getElementById('count').value = lastCard;
-    document.getElementById('cardList').innerHTML += '<div><label for="cardContent'+lastCard+'">Terme</label><input type="text" name="cardContent'+lastCard+'"><label for="cardContent'+lastCard+'">Définition</label><input type="text" name="cardDefinition'+lastCard+'"><input type="hidden" name="cardId'+cardId+'" value="'+cardId+'"></div>';
+    
+    let newCardDiv = document.createElement("div");
+    newCardDiv.innerHTML = '<label for="cardContent'+lastCard+'">Terme</label><input type="text" name="cardContent'+lastCard+'"><label for="cardContent'+lastCard+'">Définition</label><input type="text" name="cardDefinition'+lastCard+'"><input type="hidden" name="cardId'+cardId+'" value="'+cardId+'">';
+    document.getElementById('cardList').appendChild(newCardDiv);
 
 }
 
