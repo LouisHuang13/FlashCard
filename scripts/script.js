@@ -2,12 +2,13 @@
 let lastCard = 0;
 let cardId = 1;
 let cardTotal = document.getElementById('cardCounter').value;
-let cardCounter = document.getElementById('cardCounter').value - 1;
+let cardCounter = document.getElementById('cardCounter').value;
 let progression = 0;
 
 let enCours = 0;
 let acquis = 0;
 let score = 0;
+let state = true;
 
 let indexEnCours = [];
 
@@ -80,30 +81,55 @@ document.getElementsByClassName('countersContainer')[1].innerHTML = progression+
 document.getElementsByClassName('countersContainer')[2].innerHTML = acquis+'/'+cardTotal;
 
 document.addEventListener("keydown", function(event) {
-    if(cardCounter >= 0){
+    if(cardCounter > 0){
         if (event.key === "ArrowRight") {
+            cardCounter --; 
             document.getElementsByClassName('card')[cardCounter].style.transform = 'translateX(150%)';
             document.getElementById('progressBar').style.transform += 'translateX('+ 100/cardTotal +'%)';
     
-            cardCounter --; acquis++;
+            acquis++; score++;
             document.getElementsByClassName('countersContainer')[2].innerHTML = acquis+'/'+cardTotal;
 
-            progression++;
-            document.getElementsByClassName('countersContainer')[1].innerHTML = progression+'/'+cardTotal;
+            progression++; 
+            document.getElementsByClassName('countersContainer')[1].innerHTML = progression+'/'+cardTotal;      
         }else if (event.key === "ArrowLeft") {
+            cardCounter --; 
             document.getElementsByClassName('card')[cardCounter].style.transform = 'translateX(-150%)';
             document.getElementById('progressBar').style.transform += 'translateX('+ 100/cardTotal +'%)';
             indexEnCours.push(cardCounter);
-            console.log(indexEnCours);
-            cardCounter --; enCours++;
+    
+            enCours++;
             document.getElementsByClassName('countersContainer')[0].innerHTML = enCours+'/'+cardTotal;
 
             progression++;
             document.getElementsByClassName('countersContainer')[1].innerHTML = progression+'/'+cardTotal;
         }
 
-    }else {
-        
-    }
+    }else if(state){
+        if(cardCounter == 0){
+            if(indexEnCours.length == 0){
+                document.getElementById('cards').innerHTML += "<div class='endScore'><p>Bravo ! Score parfait :)</p><div><a href=''>Réessayer</a><a href='flashcards.php'>Essayer autre chose</a></div></div>";
+                state = false;
+            }else{
+                if(((score/cardTotal)*100) >= 30){
+                    document.getElementById('cards').innerHTML += "<div class='endScore'><p>Super ! Tu y es presque :)</p><div><a onclick='cycleCard()'>Reprendre mes erreurs</a><a href='flashcards.php'>Essayer autre chose</a></div></div>";
+                    state = false;
+                }else if(score==0){
+                    document.getElementById('cards').innerHTML += "<div class='endScore'><p>Ok mais sans enthousiasme</p><div><a href=''>Réessayer</a><a href='flashcards.php'>Essayer autre chose</a></div></div>";
+                    state = false;
+                }
+            }
+            
+        }
+    }else if()
 });
+
+function cycleCard(){
+    for (let i = 0; i < indexEnCours.length; i++) {
+        console.log(indexEnCours[i]);
+        document.getElementsByClassName('card')[indexEnCours[i]].style.transform = 'unset';
+    }
+}
+
+
 

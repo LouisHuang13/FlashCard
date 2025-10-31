@@ -398,7 +398,6 @@ input[type="search"]::placeholder{
 
     transition: transform 1s;
     transform-style: preserve-3d;
-    box-shadow: 0 0 5dvh #df635223;
 }
 
 #cards > div > div > div {
