@@ -10,13 +10,13 @@ html, body {
 
 }
 
-.endScore {
+#endScore {
     width: 50%;
     display: flex; flex-direction: column; justify-content: center; align-items: center;
     color: #DF6252; font-weight: bold;
 }
 
-.endScore > div > a {
+#endScore > div > a {
     width: 100%;
     padding: 2%; margin: 1%;
 
@@ -25,7 +25,8 @@ html, body {
     border-radius: 2dvh;
 }
 
-.endScore > div > a:hover {
+#endScore > div > a:hover {
     box-shadow: 0 0 0 #963e33;
     transform: translateY(25%);
+    cursor: pointer;
 }

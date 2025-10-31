@@ -2,7 +2,13 @@
 let lastCard = 0;
 let cardId = 1;
 let cardTotal = document.getElementById('cardCounter').value;
-let cardCounter = document.getElementById('cardCounter').value;
+let cardList = [];
+
+for (let j = 0; j < cardTotal; j++) {
+    cardList.push(j);
+}
+cardList.reverse();
+
 let progression = 0;
 
 let enCours = 0;
@@ -81,54 +87,59 @@ document.getElementsByClassName('countersContainer')[1].innerHTML = progression+
 document.getElementsByClassName('countersContainer')[2].innerHTML = acquis+'/'+cardTotal;
 
 document.addEventListener("keydown", function(event) {
-    if(cardCounter > 0){
+    if(cardList.length > 0){
         if (event.key === "ArrowRight") {
-            cardCounter --; 
-            document.getElementsByClassName('card')[cardCounter].style.transform = 'translateX(150%)';
-            document.getElementById('progressBar').style.transform += 'translateX('+ 100/cardTotal +'%)';
-    
-            acquis++; score++;
-            document.getElementsByClassName('countersContainer')[2].innerHTML = acquis+'/'+cardTotal;
 
-            progression++; 
-            document.getElementsByClassName('countersContainer')[1].innerHTML = progression+'/'+cardTotal;      
-        }else if (event.key === "ArrowLeft") {
-            cardCounter --; 
-            document.getElementsByClassName('card')[cardCounter].style.transform = 'translateX(-150%)';
+            document.getElementsByClassName('card')[cardList[0]].style.transform = 'translateX(150%)';
             document.getElementById('progressBar').style.transform += 'translateX('+ 100/cardTotal +'%)';
-            indexEnCours.push(cardCounter);
-    
-            enCours++;
+            
+            cardList.splice(0, 1);  acquis++;   score++;
+            document.getElementsByClassName('countersContainer')[2].innerHTML = acquis+'/'+cardTotal;
+  
+        }else if (event.key === "ArrowLeft") {
+
+            document.getElementsByClassName('card')[cardList[0]].style.transform = 'translateX(-150%)';
+            document.getElementById('progressBar').style.transform += 'translateX('+ 100/cardTotal +'%)';
+            indexEnCours.push(cardList[0]);
+            
+            cardList.splice(0, 1);  enCours++;
             document.getElementsByClassName('countersContainer')[0].innerHTML = enCours+'/'+cardTotal;
 
-            progression++;
-            document.getElementsByClassName('countersContainer')[1].innerHTML = progression+'/'+cardTotal;
         }
+        progression++;  document.getElementsByClassName('countersContainer')[1].innerHTML = progression+'/'+cardTotal;
 
     }else if(state){
-        if(cardCounter == 0){
+        if(cardList.length == 0){
             if(indexEnCours.length == 0){
-                document.getElementById('cards').innerHTML += "<div class='endScore'><p>Bravo ! Score parfait :)</p><div><a href=''>Réessayer</a><a href='flashcards.php'>Essayer autre chose</a></div></div>";
+                document.getElementById('cards').innerHTML += "<div id='endScore'><p>Bravo ! Score parfait :)</p><div><a href=''>Réessayer</a><a href='flashcards.php'>Essayer autre chose</a></div></div>";
                 state = false;
             }else{
                 if(((score/cardTotal)*100) >= 30){
-                    document.getElementById('cards').innerHTML += "<div class='endScore'><p>Super ! Tu y es presque :)</p><div><a onclick='cycleCard()'>Reprendre mes erreurs</a><a href='flashcards.php'>Essayer autre chose</a></div></div>";
-                    state = false;
+                    document.getElementById('cards').innerHTML += "<div id='endScore'><p>Super ! Tu y es presque :)</p><div><a onclick='cycleCard()'>Reprendre mes erreurs</a><a href='flashcards.php'>Essayer autre chose</a></div></div>";
                 }else if(score==0){
-                    document.getElementById('cards').innerHTML += "<div class='endScore'><p>Ok mais sans enthousiasme</p><div><a href=''>Réessayer</a><a href='flashcards.php'>Essayer autre chose</a></div></div>";
-                    state = false;
+                    document.getElementById('cards').innerHTML += "<div id='endScore'><p>Super ! Tu y es presque :)</p><div><a onclick='cycleCard()'>Reprendre mes erreurs</a><a href='flashcards.php'>Essayer autre chose</a></div></div>";
                 }
+                state = false;
             }
             
         }
-    }else if()
+    }
 });
 
 function cycleCard(){
+    
+    document.getElementById('endScore').style.transform = 'translateX(200%)';
+    document.getElementById('progressBar').style.transform += 'translateX(-100%)';
+    setTimeout(() => {
+        document.getElementById('endScore').style.display = 'none';
+        progression = 0; enCours = 0; score = 0;
+    }, 500);
     for (let i = 0; i < indexEnCours.length; i++) {
-        console.log(indexEnCours[i]);
+        cardList.push(indexEnCours[i]);
         document.getElementsByClassName('card')[indexEnCours[i]].style.transform = 'unset';
     }
+    indexEnCours = [];  cardTotal = cardList.length;  state = true;
+
 }
 
 
