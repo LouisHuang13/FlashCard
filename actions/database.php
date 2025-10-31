@@ -9,7 +9,7 @@ try {
 {
     try {
         if(session_status() != 2) session_start();
-        $bdd = new PDO("mysql:host=localhost;dbname=db-huanglou;charset=utf8", "usr-huanglou", "T<dhs1gYd)^P");
+        $bdd = new PDO("mysql:host=localhost;dbname=db-huanglou;charset=utf8", "usr-huanglou", "V78YOh2xj=Pi");
     } catch (PDOException $e) {
         die('Une erreur a été trouvée : '. $e->getMessage());
     }    
