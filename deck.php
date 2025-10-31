@@ -1,6 +1,7 @@
 <?php
     require('actions/database.php');
     require('actions/getAllCardsAction.php');
+    require('actions/deleteDeckAction.php');
     $count = 0;
 ?>
 
@@ -15,7 +16,12 @@
 </head>
 <body>
     <?php require_once('includes/nav.php')?>
-
+    <section id="settings">
+        <form method="POST">
+            <input type="hidden" name="deckId" value="<?=$_GET['id']?>">
+            <input type="submit" name="eraseDeck" value="Supprimer le deck">
+        </form>
+    </section>
     <section id="cards">
         <?php 
             while($card = $getAllCards->fetch()){

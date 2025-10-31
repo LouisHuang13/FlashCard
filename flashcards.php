@@ -4,7 +4,9 @@
     while($countDeck = $getAllDecksCount->fetch()){
         $deckCount++;
     }
-    
+    if(!$_SESSION){
+        header('Location: index.php');
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +26,7 @@
             <hr>
             <?php while($decksStart = $getAllDecksStart->fetch()){
             ?>
-                <a href='deck.php?id=<?= $deckCount?>'>
+                <a href='deck.php?id=<?=$decksStart['id']?>'>
                     <div class="deckCard">
                         <?php 
                             $getCardCount = $bdd->prepare('SELECT id FROM unicard_cards WHERE id_deck = ?');
