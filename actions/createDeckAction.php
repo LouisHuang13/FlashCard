@@ -6,7 +6,7 @@ if(isset($_POST['submitDeck'])){
 
         //Check si le deck existe
         $checkIfDeckExists = $bdd->prepare('SELECT * FROM unicard_decks WHERE name = ? AND description = ?');
-        $checkIfDeckExists->execute(array($deck_title, $deck_desc));
+        $checkIfDeckExists->execute(array($deck_title, $deck_description));
 
         $deckInfos = $checkIfDeckExists->fetch();
 

@@ -9,6 +9,8 @@ let enCours = 0;
 let acquis = 0;
 let score = 0;
 
+let indexEnCours = [];
+
 function openLoginMenu(parameter){
     if(parameter){
         document.getElementById('login').style.transform = 'unset';
@@ -91,6 +93,8 @@ document.addEventListener("keydown", function(event) {
         }else if (event.key === "ArrowLeft") {
             document.getElementsByClassName('card')[cardCounter].style.transform = 'translateX(-150%)';
             document.getElementById('progressBar').style.transform += 'translateX('+ 100/cardTotal +'%)';
+            indexEnCours.push(cardCounter);
+            console.log(indexEnCours);
             cardCounter --; enCours++;
             document.getElementsByClassName('countersContainer')[0].innerHTML = enCours+'/'+cardTotal;
 
@@ -98,6 +102,8 @@ document.addEventListener("keydown", function(event) {
             document.getElementsByClassName('countersContainer')[1].innerHTML = progression+'/'+cardTotal;
         }
 
+    }else {
+        
     }
 });
 
