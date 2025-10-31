@@ -117,7 +117,7 @@ document.addEventListener("keydown", function(event) {
                 if(((score/cardTotal)*100) >= 30){
                     document.getElementById('cards').innerHTML += "<div id='endScore'><p>Super ! Tu y es presque :)</p><div><a onclick='cycleCard()'>Reprendre mes erreurs</a><a href='flashcards.php'>Essayer autre chose</a></div></div>";
                 }else if(score==0){
-                    document.getElementById('cards').innerHTML += "<div id='endScore'><p>Super ! Tu y es presque :)</p><div><a onclick='cycleCard()'>Reprendre mes erreurs</a><a href='flashcards.php'>Essayer autre chose</a></div></div>";
+                    document.getElementById('cards').innerHTML += "<div id='endScore'><p>Ok mais sans enthousiasme</p><div><a onclick='cycleCard()'>Reprendre mes erreurs</a><a href='flashcards.php'>Essayer autre chose</a></div></div>";
                 }
                 state = false;
             }
@@ -132,7 +132,7 @@ function cycleCard(){
     document.getElementById('progressBar').style.transform += 'translateX(-100%)';
     setTimeout(() => {
         document.getElementById('endScore').style.display = 'none';
-        progression = 0; enCours = 0; score = 0;
+        progression = 0; enCours = 0; acquis = 0; score = 0;
     }, 500);
     for (let i = 0; i < indexEnCours.length; i++) {
         cardList.push(indexEnCours[i]);

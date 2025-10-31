@@ -53,7 +53,7 @@ nav > div:last-of-type > button:last-of-type {
     background-color: #DF6252; color: #FBFBF2; font-family: 'Montserrat'; font-weight: bold;
     border: none; border-radius: 5dvh;
 
-    padding: 4%; margin: 5%;
+    padding: 3%; margin: 5%;
 }
 
 nav > div:last-of-type > button:last-of-type:hover {
@@ -116,8 +116,14 @@ label {
 #mainSection > button {
     width: 30%;
     padding: 1%;
-    background-color: #DF6252; color: #fafafa; font-size: 1.2rem; font-weight: bold;
-    border: none; border-radius: 5dvh;
+    background-color: #fafafa; color: #DF6252;border: 2px solid #DF6252; font-size: 1.2rem; font-weight: bold;
+    border-radius: 5dvh;
+    box-shadow: 0 1.2dvh #DF6252;
+}
+
+#mainSection > button:hover {
+    box-shadow: 0 0 #DF6252;
+    transform: translateY(10%);
 }
 
 /* CONNEXION */
@@ -253,7 +259,7 @@ label {
 
 }
 
-#create > div:last-of-type > form > button {
+#create > div:last-of-type > form button {
     position: fixed;    bottom :0; right: 0;
     margin: 2%;
     width: 5dvh; height: 5dvh;
@@ -275,6 +281,7 @@ label {
 
     display: flex; flex-direction: column; justify-content: flex-start; align-items: center;
 }
+
 #create > div:last-of-type > form > div > div {
     width: 80%; height: 35dvh;
     padding: 2%; margin: 5%;
@@ -331,7 +338,6 @@ label {
 input[type="search"]::placeholder{
     color: #fafafa;
 }
-
 #decksContainer{
     width: 75%;
     margin: 0 auto;
@@ -347,6 +353,10 @@ input[type="search"]::placeholder{
     background-color: #f8f4f4; color: #DF6252; font-size: 1.2rem; font-weight: bold;
     border-radius: 3dvh; border: none;
     transition: 1s;
+}
+
+.deckCard > div > p {
+    font-size: .8rem;
 }
 
 .deckCard:hover {
@@ -428,11 +438,16 @@ input[type="search"]::placeholder{
     display: flex;
 }
 
-.deckCard > div > p:first-of-type, .deckCard > div > p:last-of-type {
+.deckCard > div > p {
     padding: 3%; margin: 1%;
 
     background-color: #DF6252; color: #fafafa;
+    border: 1px solid #DF6252;
     border-radius: 5dvh;
+}
+
+.deckCard:hover > div > p {
+    background-color: #f8f4f4; color: #DF6252;
 }
 
 .deckCard > * {
