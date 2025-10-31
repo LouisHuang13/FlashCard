@@ -17,10 +17,19 @@
 <body>
     <?php require_once('includes/nav.php')?>
     <section id="settings">
+        <?php 
+            $checkUser = $bdd->prepare('SELECT author FROM unicard_decks WHERE id = ?');
+            $checkUser->execute(array($_GET['id']));
+            $checkUser = $checkUser->fetch();
+            if($checkUser[0] === $_SESSION['username']){
+        ?>
         <form method="POST">
             <input type="hidden" name="deckId" value="<?=$_GET['id']?>">
             <input type="submit" name="eraseDeck" value="Supprimer le deck">
         </form>
+        <?php
+        }
+        ?>
     </section>
     <section id="cards">
         <?php 

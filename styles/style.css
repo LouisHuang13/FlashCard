@@ -485,3 +485,7 @@ input[type="search"]::placeholder{
     background-color: #DF6252; color: #fafafa;font-weight: bold;
     border: none; border-radius: 5dvh;
 }
+
+#settings > form > input:hover {
+    background-color: #b3493b;
+}

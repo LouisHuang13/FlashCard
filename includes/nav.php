@@ -6,7 +6,7 @@
         <a href="flashcards.php" class="hoverLink">Les Flashcards</a>
     </div>
     <div>
-        <a href="createFlashCard.php" class="hoverLink">+ Créer</a>
+        <a href="createFlashCard.php" class="hoverLink">+ Créer et modifier</a>
         <?php
             if(isset($_SESSION['auth'])){
         ?>
