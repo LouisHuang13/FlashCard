@@ -82,9 +82,9 @@ function flipCard(number){
     document.getElementsByClassName('cardContent')[number].style.transform += 'rotateY(180deg)';
 }
 
-document.getElementsByClassName('countersContainer')[0].innerHTML = enCours+'/'+cardTotal;
+document.getElementsByClassName('countersContainer')[0].innerHTML = '<p>En cours</p>'+enCours+'/'+cardTotal;
 document.getElementsByClassName('countersContainer')[1].innerHTML = progression+'/'+cardTotal;
-document.getElementsByClassName('countersContainer')[2].innerHTML = acquis+'/'+cardTotal;
+document.getElementsByClassName('countersContainer')[2].innerHTML = '<p>Acquis</p>'+acquis+'/'+cardTotal;
 
 document.addEventListener("keydown", function(event) {
     if(cardList.length > 0){
@@ -93,8 +93,8 @@ document.addEventListener("keydown", function(event) {
             document.getElementsByClassName('card')[cardList[0]].style.transform = 'translateX(150%)';
             document.getElementById('progressBar').style.transform += 'translateX('+ 100/cardTotal +'%)';
             
-            cardList.splice(0, 1);  acquis++;   score++;
-            document.getElementsByClassName('countersContainer')[2].innerHTML = acquis+'/'+cardTotal;
+            cardList.splice(0, 1);  acquis++;   score++;    progression++;  
+            document.getElementsByClassName('countersContainer')[2].innerHTML = '<p>Acquis</p>'+acquis+'/'+cardTotal;
   
         }else if (event.key === "ArrowLeft") {
 
@@ -102,11 +102,11 @@ document.addEventListener("keydown", function(event) {
             document.getElementById('progressBar').style.transform += 'translateX('+ 100/cardTotal +'%)';
             indexEnCours.push(cardList[0]);
             
-            cardList.splice(0, 1);  enCours++;
-            document.getElementsByClassName('countersContainer')[0].innerHTML = enCours+'/'+cardTotal;
+            cardList.splice(0, 1);  enCours++;  progression++;  
+            document.getElementsByClassName('countersContainer')[0].innerHTML = '<p>En cours</p>'+enCours+'/'+cardTotal;
 
         }
-        progression++;  document.getElementsByClassName('countersContainer')[1].innerHTML = progression+'/'+cardTotal;
+        document.getElementsByClassName('countersContainer')[1].innerHTML = progression+'/'+cardTotal;
 
     }else if(state){
         if(cardList.length == 0){

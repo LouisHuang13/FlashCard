@@ -443,7 +443,7 @@ input[type="search"]::placeholder{
 
     background-color: #DF6252; color: #fafafa; font-weight: bold;
     border-radius: 5dvh;
-    display: flex; justify-content: center; align-items: center;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
 }
 
 .deckCard > div {
