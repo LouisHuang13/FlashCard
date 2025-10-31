@@ -215,8 +215,16 @@ label {
 
 #create > div:last-of-type{
     width: 70%; min-height: 100%;
+    padding: 5%;
 
     display: flex; flex-direction: column; justify-content: flex-end; align-items: center;
+}
+
+#create > div:last-of-type > form > select {
+    padding: 1%;
+
+    background-color: #DF6252; color: #fafafa; font-weight: bold;
+    border: none; border-radius: 5dvh;
 }
 
 
@@ -330,9 +338,15 @@ label {
     width: 40%;
     padding: 1%; margin: 1%;
 
-    background-color: #DF6252; border-radius: 2dvh; color: #fafafa; font-weight: bold;
+    background-color: #DF6252; border-radius: 5dvh; color: #fafafa; font-weight: bold;
     border: none;
     transition: 1s;
+}
+
+#searchPage > form > a {
+    padding: 1%;
+
+    background-color: #DF6252; border-radius: 5dvh; color: #fafafa; font-weight: bold;
 }
 
 input[type="search"]::placeholder{

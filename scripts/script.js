@@ -70,7 +70,7 @@ function search(search) {
     .then(data => {
         document.getElementById('decksContainer').innerHTML = "<hr>";
         for (let index = 0; index < data.decks.length; index++) {
-            document.getElementById('decksContainer').innerHTML += `<a href="deck.php?id=${data.decks[index].id}"><div class="deckCard"><h3>${data.decks[index].name}</h3><p>${data.decks[index].author}</p></div></a>`;
+            document.getElementById('decksContainer').innerHTML += `<a href="deck.php?id=${data.decks[index].id}"><div class="deckCard"><h3>${data.decks[index].name}</h3><div><p>${data.decks[index].author}</p><p></p></div></div></a>`;
         }
     })
     .catch(error => console.error("Erreur :", error));
@@ -131,7 +131,7 @@ function cycleCard(){
     document.getElementById('endScore').style.transform = 'translateX(200%)';
     document.getElementById('progressBar').style.transform += 'translateX(-100%)';
     setTimeout(() => {
-        document.getElementById('endScore').style.display = 'none';
+        document.getElementById('endScore').remove();
         progression = 0; enCours = 0; acquis = 0; score = 0;
     }, 500);
     for (let i = 0; i < indexEnCours.length; i++) {

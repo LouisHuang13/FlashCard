@@ -19,6 +19,7 @@
     <section id="searchPage">
         <form>
             <input type="search" name="searchBar" placeholder="Recherchez..." oninput="search(this.value)">
+            <a href="">Mes Flashcards</a>
         </form>
         <div id="decksContainer">
             <hr>

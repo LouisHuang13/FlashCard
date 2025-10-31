@@ -22,7 +22,7 @@ html, body {
 
     background-color: #DF6252; color: #fafafa; font-weight: bold;
     box-shadow: 0 .8dvh 0 #963e33;
-    border-radius: 2dvh;
+    border-radius: 5dvh;
 }
 
 #endScore > div > a:hover {
