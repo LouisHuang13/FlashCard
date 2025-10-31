@@ -33,8 +33,11 @@
                             $cardCount = count($getCardCount->fetchAll());
                         ?>
                         <h3><?=$decksStart['name']?></h3>
-                        <p><?= $cardCount?> termes</p>
-                        <p><?=$decksStart['author']?></p>
+                        <p><?=$decksStart['description']?></p>
+                        <div>
+                            <p><?=$decksStart['author']?></p>
+                            <p><?= $cardCount?> termes</p>
+                        </div>
                     </div>
                 </a>
             <?php

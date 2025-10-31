@@ -423,8 +423,14 @@ input[type="search"]::placeholder{
     display: flex; justify-content: center; align-items: center;
 }
 
-.deckCard > p:first-of-type {
-    padding: 3%;
+.deckCard > div {
+    width: 100%;
+
+    display: flex;
+}
+
+.deckCard > div > p:first-of-type, .deckCard > div > p:last-of-type {
+    padding: 3%; margin: 1%;
 
     background-color: #DF6252; color: #fafafa;
     border-radius: 5dvh;

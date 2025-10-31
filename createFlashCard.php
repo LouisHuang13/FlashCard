@@ -41,6 +41,7 @@
                         
                         while($deck = $getAllDecks->fetch()){
                     ?>
+                        <option value="">-</option>
                         <option value="<?=$deck['id'];?>"><?=$deck['name'];?></option>
                     <?php
                     }
@@ -49,7 +50,7 @@
                 
                 <div id="cardList">
                 </div>
-                    
+                
                 <input type="hidden" name="count" id="count" value="0">
                 <button onclick="addCard(event)">+</button>
                 <input type="submit" value="Créer" name="submitCards">

@@ -11,7 +11,7 @@ if(isset($_POST['submitCards'])){
 
                 if($checkIfCardExists->rowCount() > 0){
                         $updateCard = $bdd->prepare('UPDATE unicard_cards SET side1 = ?, side2 = ? WHERE id = ?');
-                        $updateCard->execute(array($_POST[$cardTitle], $_POST[$cardDesc], $_POST['cardId']));
+                        $updateCard->execute(array($_POST[$cardTitle], $_POST[$cardDesc], $_POST['cardId'].$i));
                 }else{
                         $insertCard = $bdd->prepare('INSERT INTO unicard_cards(id_deck, side1, side2) VALUES(?, ?, ?)');
                         $insertCard->execute(array($deckId, $_POST[$cardTitle], $_POST[$cardDesc]));
