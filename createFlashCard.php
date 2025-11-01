@@ -29,19 +29,19 @@
                 <label for="description">Description</label>
                 <textarea name="description"></textarea>
 
-                <input type="submit" value="Créer" name="submitDeck">
+                <input type="submit" value="Créer le deck" name="submitDeck">
             </form>
         </div>
         <div>
             <form id="createDivForm" method="POST">
                 <select name="selectDeck" onchange="getDeck(this.value)">
+                    <option value="">-</option>
                     <?php
                         $getAllDecks = $bdd->prepare('SELECT * FROM unicard_decks WHERE author = ?');
                         $getAllDecks->execute(array($_SESSION['username']));
                         
                         while($deck = $getAllDecks->fetch()){
                     ?>
-                        <option value="">-</option>
                         <option value="<?=$deck['id'];?>"><?=$deck['name'];?></option>
                     <?php
                     }
@@ -53,7 +53,7 @@
                 
                 <input type="hidden" name="count" id="count" value="0">
                 <button onclick="addCard(event)">+</button>
-                <input type="submit" value="Créer" name="submitCards">
+                <input type="submit" value="Enregistrer le deck" name="submitCards">
             </form>
         </div>
     </section>

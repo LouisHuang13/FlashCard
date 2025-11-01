@@ -3,7 +3,7 @@
     require('actions/loginAction.php');
 
     if($_SESSION['auth']){
-        header('Location: flashcards.php');
+        header('Location: decks.php');
     }
 ?>
 

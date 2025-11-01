@@ -1,3 +1,4 @@
+let isTuto = true;
 
 let lastCard = 0;
 let cardId = 1;
@@ -18,12 +19,23 @@ let state = true;
 
 let indexEnCours = [];
 
+
 function openLoginMenu(parameter){
     if(parameter){
         document.getElementById('login').style.transform = 'unset';
     }
     else{
         document.getElementById('login').style.transform = 'translateY(-100dvh)';
+    }
+}
+function showTuto(){
+    if(isTuto){
+        document.getElementById('tutorial').style.transform = 'translateY(100%)';
+        isTuto = false;
+    }
+    else{
+        document.getElementById('tutorial').style.transform = 'translateY(-150%)';
+        isTuto = true;
     }
 }
 

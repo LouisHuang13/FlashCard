@@ -6,11 +6,66 @@ html, body {
     margin: 0; padding: 0;
 }
 
+body {
+        --d: 2px; 
+   
+   background : radial-gradient(
+     circle at 
+        var(--d) 
+        var(--d), 
+        
+     #f002022d calc(var(--d) - 1px), 
+     #0000 var(--d)
+   ) 
+   0 0 / 25px 25px;
+}
+
 *{
     transition: .8s;
     box-sizing: border-box;
 
     font-family: 'Montserrat';
+}
+
+#error {
+    position: fixed;
+    top : 5%;
+    width: 100%;
+    display: flex; justify-content: center; align-items: center;
+
+    transform: translateY(-200%);
+    transition: 1s; transition-delay: 2.5s;
+}
+
+#error > p {
+    width: 30%; padding: 1%;
+
+    text-align: center;
+    background-color: #DF6252; color: #fafafa; font-weight: bold;
+    border-radius: 2dvh;
+}
+
+#tutorial {
+    position: fixed; top:0;
+
+    padding: 2%;
+    background-color: #DF6252; border-radius: 5dvh; color: #fafafa; font-weight: bold;
+
+    box-shadow: 0 0 5dvh #df635292;
+    transform: translateY(-150%);
+    transition: 1s;
+}
+
+nav > div > img {
+    width: 5dvh; height: 5dvh;
+}
+
+nav img:hover {
+    scale: 1.1;
+}
+nav > div > img:hover {
+    cursor: pointer;
+    rotate: 5deg;
 }
 
 a {
@@ -29,7 +84,6 @@ nav {
     width: 100%; height: 10dvh;
     padding:  2.5%;
 
-    background-color: #fafafa;
     border-top: 3px solid #DF6252;
 
     position: sticky; top : 0; left: 0;
@@ -49,15 +103,14 @@ nav > div {
 
 nav > div:last-of-type > button:last-of-type {
     
-    width: 30%;
-    background-color: #DF6252; color: #FBFBF2; font-family: 'Montserrat'; font-weight: bold;
-    border: none; border-radius: 5dvh;
+    background: transparent; color: #DF6252; font-family: 'Montserrat'; font-weight: bold;
+    border: 1px solid #DF6252; border-radius: 5dvh; box-shadow: 0 .8dvh 0 #DF6252;
 
-    padding: 3%; margin: 5%;
+    padding: 2.5%; margin: 5%;
 }
 
 nav > div:last-of-type > button:last-of-type:hover {
-    background-color: #b3493b;
+    box-shadow: 0 0 0 #DF6252; transform: translateY(10%);
 }
 
 nav > div > a, nav > div > button {
@@ -102,10 +155,13 @@ label {
     font-size: 1.5rem;
 }
 
-#mainSection > h1{
+#mainSection h1 {
     font-size: 3rem;
-    color: #DF6252;
     margin: 0;
+}
+
+#mainSection > h1, #mainSection > p{
+    color: #DF6252;
 }
 
 #mainSection > p {
@@ -116,7 +172,7 @@ label {
 #mainSection > button {
     width: 30%;
     padding: 1%;
-    background-color: #fafafa; color: #DF6252;border: 2px solid #DF6252; font-size: 1.2rem; font-weight: bold;
+    background : transparent; color: #DF6252;border: 2px solid #DF6252; font-size: 1.2rem; font-weight: bold;
     border-radius: 5dvh;
     box-shadow: 0 1.2dvh #DF6252;
 }
@@ -134,11 +190,23 @@ label {
     
     display: flex; justify-content: flex-end; align-items: center;
 
-    background-color: #DF6252; color: #DF6252;
+    color: #DF6252;
     z-index: 999;
 
     transform: translateY(-100dvh);
     transition: 1.5s;
+
+            --d: 2px; 
+   
+   background : radial-gradient(
+     circle at 
+        var(--d) 
+        var(--d), 
+        
+     #f5a59a calc(var(--d) - 1px), 
+     #DF6252 var(--d)
+   ) 
+   0 0 / 25px 25px;
 }
 
 #login > div {
