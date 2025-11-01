@@ -27,6 +27,10 @@ body {
     font-family: 'Montserrat';
 }
 
+strong {
+    background-color: #DF6252; color: #fafafa;
+}
+
 #error {
     position: fixed;
     top : 5%;
