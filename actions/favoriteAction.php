@@ -1,6 +1,6 @@
 <?php
-        $checkIfFavoriteExists = $bdd->prepare('SELECT * FROM unicard_favorites WHERE id_deck = ? AND id_user = ?');
-        $checkIfFavoriteExists->execute(array($deckId, $userId));
+        $checkIfFavoriteExists = $bdd->prepare('SELECT id FROM unicard_favorites WHERE id_deck = ? AND id_user = ?');
+        $checkIfFavoriteExists->execute(array($_GET['id'], $_SESSION['id']));
 
         $favoriteInfos = $checkIfFavoriteExists->fetch();
 
@@ -16,7 +16,7 @@ if(isset($_POST['favorite'])){
         $userId = $_SESSION['id'];
 
         //Check si le deck existe
-        $checkIfFavoriteExists = $bdd->prepare('SELECT * FROM unicard_favorites WHERE id_deck = ? AND id_user = ?');
+        $checkIfFavoriteExists = $bdd->prepare('SELECT id FROM unicard_favorites WHERE id_deck = ? AND id_user = ?');
         $checkIfFavoriteExists->execute(array($deckId, $userId));
 
         $favoriteInfos = $checkIfFavoriteExists->fetch();

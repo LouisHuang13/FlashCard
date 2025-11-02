@@ -34,7 +34,7 @@ function showTuto(){
         isTuto = false;
     }
     else{
-        document.getElementById('tutorial').style.transform = 'translateY(-150%)';
+        document.getElementById('tutorial').style.transform = 'translateY(-300%)';
         isTuto = true;
     }
 }

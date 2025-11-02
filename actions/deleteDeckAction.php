@@ -7,7 +7,7 @@
         $eraseDeck = $bdd->prepare('DELETE FROM unicard_decks WHERE id = ?');
         $eraseDeck->execute(array($_POST['deckId']));
 
-        header('Location: flashcards.php');
+        header('Location: decks.php');
     }
 
 ?>

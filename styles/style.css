@@ -62,13 +62,13 @@ strong {
 }
 
 #tutorial {
-    position: fixed; top:0;
+    position: fixed; top:0; left: 0;
 
-    padding: 2%;
+    padding: 2%; margin: 10%;
     background-color: #DF6252; border-radius: 5dvh; color: #fafafa; font-weight: bold;
 
     box-shadow: 0 0 5dvh #df635292;
-    transform: translateY(-150%);
+    transform: translateY(-300%);
     transition: 1s;
 }
 
@@ -522,10 +522,11 @@ input[type="search"]::placeholder{
     display: flex; justify-content: center; align-items: center;
 }
 #counters > div {
-    width: 15%; height: 10dvh;
-    padding: 5%; margin: 1%;
+    height: 10dvh;
+    padding: 3%; margin: 1%;
 
     background-color: #DF6252; color: #fafafa; font-weight: bold;
+    box-shadow: 0 1dvh 0 #9c3d31;
     border-radius: 5dvh;
     display: flex; flex-direction: column; justify-content: center; align-items: center;
 }
@@ -581,4 +582,13 @@ input[type="search"]::placeholder{
 
 #favoriteButton img {
     width: 3dvh; height: 3dvh;
+}
+
+#eraseDeck {
+    background: none; color: #DF6252; font-weight: bold;
+    border: none;
+}
+
+#eraseDeck img {
+    width: 4.5dvh; height: 4.5dvh;
 }
