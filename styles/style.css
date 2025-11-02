@@ -2,6 +2,18 @@
     font-family: 'Montserrat';
     src: url('../font/Montserrat.ttf');
 }
+
+@keyframes floating {
+    0%{
+        transform: unset;
+    }
+    33%{
+        transform: translateY(10%);
+    }
+    100%{
+        transform: unset;
+    }
+}
 html, body {
     margin: 0; padding: 0;
 }
@@ -178,12 +190,12 @@ label {
     padding: 1%;
     background : transparent; color: #DF6252;border: 2px solid #DF6252; font-size: 1.2rem; font-weight: bold;
     border-radius: 5dvh;
-    box-shadow: 0 1.2dvh #DF6252;
+
+    animation: 3s ease-out floating infinite;
 }
 
 #mainSection > button:hover {
-    box-shadow: 0 0 #DF6252;
-    transform: translateY(10%);
+    background-color: #DF6252; color: #fafafa;
 }
 
 /* CONNEXION */
