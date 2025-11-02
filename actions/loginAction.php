@@ -22,7 +22,7 @@ if(isset($_POST['submit'])){
                 $_SESSION['auth'] = true;
                 $_SESSION['id'] = $usersInfos['id'];
                 $_SESSION['username'] = $usersInfos['username'];
-                echo '<div id="error"><p>Connexion réussie :)</p></div>';
+                echo '<div id="error"><p>🎉 Connexion réussie :)</p></div>';
 
             }else
             {

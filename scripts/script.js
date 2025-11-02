@@ -127,13 +127,13 @@ document.addEventListener("keydown", function(event) {
     }else if(state){
         if(cardList.length == 0){
             if(indexEnCours.length == 0){
-                document.getElementById('cards').innerHTML += "<div id='endScore'><p>Bravo ! Score parfait :)</p><div><a href=''>Réessayer</a><a href='flashcards.php'>Essayer autre chose</a></div></div>";
+                document.getElementById('cards').innerHTML += "<div id='endScore'><p>🎉 Bravo ! Score parfait :)</p><div><a href=''>Réessayer</a><a href='decks.php'>Essayer autre chose</a></div></div>";
                 state = false;
             }else{
                 if(((score/cardTotal)*100) >= 30){
-                    document.getElementById('cards').innerHTML += "<div id='endScore'><p>Super ! Tu y es presque :)</p><div><a onclick='cycleCard()'>Reprendre mes erreurs</a><a href='flashcards.php'>Essayer autre chose</a></div></div>";
+                    document.getElementById('cards').innerHTML += "<div id='endScore'><p>🎉 Super ! Tu y es presque :)</p><div><a onclick='cycleCard()'>Reprendre mes erreurs</a><a href='decks.php'>Essayer autre chose</a></div></div>";
                 }else if(score==0){
-                    document.getElementById('cards').innerHTML += "<div id='endScore'><p>Ok mais sans enthousiasme</p><div><a onclick='cycleCard()'>Reprendre mes erreurs</a><a href='flashcards.php'>Essayer autre chose</a></div></div>";
+                    document.getElementById('cards').innerHTML += "<div id='endScore'><p>Ok mais sans enthousiasme</p><div><a onclick='cycleCard()'>Reprendre mes erreurs</a><a href='decks.php'>Essayer autre chose</a></div></div>";
                 }
                 state = false;
             }

@@ -22,7 +22,7 @@
     <section id="mainSection">
         <h1>Une façon plus <strong>ludique</strong> d'apprendre</h1>
         <p>Maîtrisez tout ce que vous devez apprendre grâce aux flashcards interactives de Uni'Card</p>
-        <button onclick="openLoginMenu(true)">S'inscrire gratuitement</button>
+        <button onclick="openLoginMenu(true)">❤️ S'inscrire gratuitement</button>
     </section>
     <script src="scripts/script.js"></script>
 </body>
