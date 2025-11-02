@@ -32,7 +32,7 @@
                     <div class="deckCard">
                         <?php 
                             $getCardCount = $bdd->prepare('SELECT id FROM unicard_cards WHERE id_deck = ?');
-                            $getCardCount->execute(array($deckCount));
+                            $getCardCount->execute(array($decksStart['id']));
 
                             $cardCount = count($getCardCount->fetchAll());
                         ?>

@@ -10,13 +10,19 @@
                 $getDecksInfos->execute(array($getAllFavoritesId[$i]['id_deck']));
 
                 $deckInfos = $getDecksInfos->fetch();
+
+                $getCardCount = $bdd->prepare('SELECT id FROM unicard_cards WHERE id_deck = ?');
+                $getCardCount->execute(array($getAllFavoritesId[$i]['id_deck']));
+
+                $cardCount = count($getCardCount->fetchAll());
                 ?>
                 <a href="deck.php?id=<?=$deckInfos['id']?>">
                 <div class="deckCard">
                     <h3><?=$deckInfos['name']?></h3>
                     <p><?=$deckInfos['description']?></p>
                     <div>
-                        <p><?=$deckInfos['author']?></p>   
+                        <p><?=$deckInfos['author']?></p>
+                        <p><?= $cardCount?> termes</p>
                     </div>
                 </div>
                 </a>
