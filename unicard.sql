@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : mer. 29 oct. 2025 à 20:26
+-- Généré le : dim. 02 nov. 2025 à 11:28
 -- Version du serveur : 5.7.24
 -- Version de PHP : 8.3.1
 
@@ -41,20 +41,23 @@ CREATE TABLE `unicard_cards` (
 --
 
 CREATE TABLE `unicard_decks` (
-  `id` smallint(5) NOT NULL,
+  `id` smallint(5) UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
   `author` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
+
 --
--- Déchargement des données de la table `unicard_decks`
+-- Structure de la table `unicard_favorites`
 --
 
-INSERT INTO `unicard_decks` (`id`, `name`, `description`, `author`) VALUES
-(1, 'dqsdqssd', 'qdsdqs', 'Louis'),
-(2, 'Carte d&#039;entrainement', 'eNTRAE', 'Louis'),
-(3, 'Carte d&#039;entrainement', 'eNTRAE', 'Louis');
+CREATE TABLE `unicard_favorites` (
+  `id` smallint(5) NOT NULL,
+  `id_user` smallint(5) UNSIGNED NOT NULL,
+  `id_deck` smallint(5) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -65,17 +68,8 @@ INSERT INTO `unicard_decks` (`id`, `name`, `description`, `author`) VALUES
 CREATE TABLE `unicard_users` (
   `id` smallint(5) UNSIGNED NOT NULL,
   `username` varchar(255) NOT NULL,
-  `mail` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `unicard_users`
---
-
-INSERT INTO `unicard_users` (`id`, `username`, `mail`, `password`) VALUES
-(1, 'huanglou', 'chanrangiku@gmail.com', 'Louis2005'),
-(2, 'Louis', 'huang.louis13eric@gmail.com', '$2y$10$mJGcIMtW684II4yMg5W0WOX6/9QOLRSF0D3/13dNKo7eCpWpmK3dG');
 
 --
 -- Index pour les tables déchargées
@@ -91,7 +85,16 @@ ALTER TABLE `unicard_cards`
 -- Index pour la table `unicard_decks`
 --
 ALTER TABLE `unicard_decks`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `author` (`author`);
+
+--
+-- Index pour la table `unicard_favorites`
+--
+ALTER TABLE `unicard_favorites`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_user` (`id_user`,`id_deck`),
+  ADD KEY `id_deck` (`id_deck`);
 
 --
 -- Index pour la table `unicard_users`
@@ -113,13 +116,30 @@ ALTER TABLE `unicard_cards`
 -- AUTO_INCREMENT pour la table `unicard_decks`
 --
 ALTER TABLE `unicard_decks`
-  MODIFY `id` smallint(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `unicard_favorites`
+--
+ALTER TABLE `unicard_favorites`
+  MODIFY `id` smallint(5) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `unicard_users`
 --
 ALTER TABLE `unicard_users`
-  MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `unicard_favorites`
+--
+ALTER TABLE `unicard_favorites`
+  ADD CONSTRAINT `unicard_favorites_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `unicard_users` (`id`),
+  ADD CONSTRAINT `unicard_favorites_ibfk_2` FOREIGN KEY (`id_deck`) REFERENCES `unicard_decks` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
