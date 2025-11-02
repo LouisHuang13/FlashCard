@@ -13,7 +13,7 @@ cardList.reverse();
 let progression = 0;
 
 let enCours = 0;
-let acquis = 0;
+let acquis = 0; 
 let score = 0;
 let state = true;
 

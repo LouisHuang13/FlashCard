@@ -2,6 +2,7 @@
     require('actions/database.php');
     require('actions/getAllCardsAction.php');
     require('actions/deleteDeckAction.php');
+    require('actions/favoriteAction.php');
     $count = 0;
 ?>
 

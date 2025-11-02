@@ -573,3 +573,12 @@ input[type="search"]::placeholder{
 #settings > form > input:hover {
     background-color: #b3493b;
 }
+
+#favoriteButton {
+    background: none;
+    border: none;
+}
+
+#favoriteButton img {
+    width: 3dvh; height: 3dvh;
+}
