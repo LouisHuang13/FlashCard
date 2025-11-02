@@ -43,7 +43,7 @@ function openFavorites(settings){
     if(settings){
         document.getElementById('favoriteList').style.transform = 'unset';
     }else{
-        document.getElementById('favoriteList').style.transform = 'translateX(-100%)';
+        document.getElementById('favoriteList').style.transform = 'translateX(-125%)';
     }
 }
 

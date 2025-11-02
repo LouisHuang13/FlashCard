@@ -79,9 +79,17 @@ nav > div > img {
 nav img:hover {
     scale: 1.1;
 }
-nav > div > img:hover {
+nav > div:last-of-type > img:hover {
     cursor: pointer;
     rotate: 5deg;
+}
+
+nav > div:first-of-type > img:first-of-type {
+    width: 3dvh; height: 3dvh;
+}
+
+nav > div:first-of-type > img:first-of-type:hover {
+    cursor: pointer;
 }
 
 a {
@@ -610,8 +618,10 @@ input[type="search"]::placeholder{
    0 0 / 25px 25px;
     z-index: 999;
 
-    transform: translateX(-100%);
+    transform: translateX(-125%);
     transform: 1.5s;
+
+    box-shadow: 0 0 5dvh #df6352a6; color: #fafafa; font-weight: bold;
 }
 
 #favoriteList::-webkit-scrollbar {
@@ -620,4 +630,8 @@ input[type="search"]::placeholder{
 
 #favoriteList > a > div {
     margin: 5% 0;
+}
+
+#favoriteList > p:hover {
+    cursor: pointer;
 }

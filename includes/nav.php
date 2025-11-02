@@ -2,7 +2,7 @@
 
 <nav>
     <div>
-        <p onclick="openFavorites(true)">Menu</p>
+        <img src="images/burger.png" onclick="openFavorites(true)"/>
         <a href="index.php"><img src="images/logo.png" alt=""></a>
         <a href="decks.php" class="hoverLink">Les Decks</a>
     </div>

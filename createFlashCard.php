@@ -19,6 +19,7 @@
 </head>
 <body>
     <?php require_once('includes/nav.php')?>
+    <?php require_once('includes/favorites.php')?>
     <script src="scripts/script.js"></script>
     <section id="create">
         <div>
