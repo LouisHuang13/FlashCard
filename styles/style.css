@@ -599,9 +599,25 @@ input[type="search"]::placeholder{
     padding: 2%;
 
     overflow-y: scroll; 
-    background-color: #DF6252;
+    background : radial-gradient(
+     circle at 
+        var(--d) 
+        var(--d), 
+        
+     #f5a59a calc(var(--d) - 1px), 
+     #DF6252 var(--d)
+   ) 
+   0 0 / 25px 25px;
+    z-index: 999;
+
+    transform: translateX(-100%);
+    transform: 1.5s;
 }
 
-#favoriteList > div {
+#favoriteList::-webkit-scrollbar {
+    width: 0;
+}
+
+#favoriteList > a > div {
     margin: 5% 0;
 }
