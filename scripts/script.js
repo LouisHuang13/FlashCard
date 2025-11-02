@@ -39,6 +39,14 @@ function showTuto(){
     }
 }
 
+function openFavorites(settings){
+    if(settings){
+        document.getElementById('favoriteList').style.transform = 'unset';
+    }else{
+        document.getElementById('favoriteList').style.transform = 'translateX(-100%)';
+    }
+}
+
 function getDeck(deckId) {
     document.getElementById('cardList').innerHTML = "";
     let formData = new FormData();
