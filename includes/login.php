@@ -14,6 +14,6 @@
 
             <input type="submit" name="submit">
         </form>
-        <p>*si le compte n'existe pas ça va le créer</p>
+        <p>*si le compte n'existe pas ça va le créer automatiquement, donc mémorisez vos identifiants, les comptes sont différenciés par les identifiants</p>
     </div>
 </section>

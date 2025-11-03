@@ -24,7 +24,7 @@
     <section id="create">
         <div>
             <form method="POST">
-                <h2>Créer un deck</h2>
+                <h2>Crée un deck</h2>
                 <label for="title">Titre du deck</label>
                 <input type="text" name="title" required>
 
@@ -37,6 +37,7 @@
         <div>
             <hr>
             <form id="createDivForm" method="POST">
+                <h2>Ajoute des cartes</h2>
                 <select name="selectDeck" onchange="getDeck(this.value)">
                     <option value="">-</option>
                     <?php

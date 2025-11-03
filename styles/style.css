@@ -69,7 +69,11 @@ strong {
 
     box-shadow: 0 0 5dvh #df635292;
     transform: translateY(-300%);
-    transition: 1s;
+    transition: 2s;
+}
+
+#tutorial > p:last-of-type {
+    display: none;
 }
 
 nav > div > img {
@@ -243,6 +247,10 @@ label {
     display: flex; flex-direction: column; justify-content: center; align-items: center;
 }
 
+#login > div > p {
+    padding: 5%;
+}
+
 #login > div > form {
     display: flex; flex-direction: column;    justify-content: center;    align-items: center;
     
@@ -299,6 +307,7 @@ label {
 
 #create h2 {
     color: #DF6252; font-size: 4rem;
+    letter-spacing: -3px;
 }
 
 #create > div:first-of-type{
@@ -306,10 +315,10 @@ label {
 }
 
 #create > div:last-of-type{
-    width: 70%; min-height: 100%;
-    padding: 5%;
+    width: 70%; min-height: 100dvh;
+    padding: 0 5%;
 
-    display: flex; flex-direction: column; justify-content: flex-end; align-items: center;
+    display: flex; flex-direction: column; justify-content: flex-start; align-items: center;
 }
 
 #create > div:last-of-type > form > select {
@@ -414,7 +423,7 @@ label {
 #create > div:last-of-type > form > input[type="submit"] {
     position: fixed;    bottom : 0; right: 5%;
 
-    width: 10%;
+    width: 20%;
     padding: 1%; margin: 2%;
 
     background-color: #DF6252; border-radius: 2dvh; color: #fafafa; font-weight: bold;
@@ -644,7 +653,7 @@ input[type="search"]::placeholder{
     display: none;
 }
 
-@media screen and (max-width : 450px){
+@media screen and (max-width : 1366px){
     /* Nav */
     nav > div:first-of-type > a > img{
         display: none;
@@ -659,10 +668,22 @@ input[type="search"]::placeholder{
     nav > div:last-of-type > button{
         padding: 3.5%;
      }
+    nav > div:last-of-type > button:last-of-type{
+        background-color: #DF6252; color: #fafafa;
+        box-shadow: unset;
+        padding: 8%;
+     }
     /* Main section */
 
+    #mainSection {
+        padding: 10%;
+    }
     #mainSection > p {
         width: 80%;
+        font-size: 1.4rem;
+    }
+    #mainSection > h1 {
+        font-size: 2.5rem;
     }
     #mainSection > button {
         width: 80%;
@@ -689,6 +710,7 @@ input[type="search"]::placeholder{
     }
     #favoriteList {
         width: 80%;
+        padding: 8%;
     }
 
     #favoriteList > p {
@@ -708,6 +730,7 @@ input[type="search"]::placeholder{
     }
     #create > div:last-of-type {
         width: 100%;
+        padding-bottom: 30%;
     }
     #create > div > hr {
         display: flex;
@@ -741,7 +764,7 @@ input[type="search"]::placeholder{
         width: 100%;
         display: flex; justify-content: center; align-items: center;
 
-        position: absolute; bottom: 25%;
+        position: absolute; bottom: 27%;
     }
     #deckSettings > img, #deckSettings > form{
         width: 5dvh; height: 5dvh;
@@ -758,5 +781,19 @@ input[type="search"]::placeholder{
 
     .card {
         width: 80%;
+    }
+    #tutorial {
+        padding: 10%;
+    }
+
+    #tutorial > p:first-of-type {
+        display: none;
+    }
+
+    #tutorial > p:last-of-type {
+        display: flex;
+    }
+    #create > div:last-of-type > form > select{
+        padding: 5%;
     }
 }

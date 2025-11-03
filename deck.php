@@ -70,9 +70,9 @@
             ?>
     </div>
     <div id="counters">
+        <div class="countersContainer" onclick="mobileCard('left')"></div>
         <div class="countersContainer"></div>
-        <div class="countersContainer"></div>
-        <div class="countersContainer"></div>
+        <div class="countersContainer" onclick="mobileCard('right')"></div>
     </div>
     <div id="progressBar">
     </div>

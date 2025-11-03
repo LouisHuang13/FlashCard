@@ -100,6 +100,9 @@ function search(search) {
     .catch(error => console.error("Erreur :", error));
 }
 
+function isMobile() {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
 // Cards
 
 function flipCard(number){
@@ -110,45 +113,84 @@ document.getElementsByClassName('countersContainer')[0].innerHTML = '<p>En cours
 document.getElementsByClassName('countersContainer')[1].innerHTML = progression+'/'+cardTotal;
 document.getElementsByClassName('countersContainer')[2].innerHTML = '<p>Acquis</p>'+acquis+'/'+cardTotal;
 
-document.addEventListener("keydown", function(event) {
+function mobileCard(side){
     if(cardList.length > 0){
-        if (event.key === "ArrowRight") {
-
+        if(side === 'right'){
+            
             document.getElementsByClassName('card')[cardList[0]].style.transform = 'translateX(150%)';
             document.getElementById('progressBar').style.transform += 'translateX('+ 100/cardTotal +'%)';
-            
+                    
             cardList.splice(0, 1);  acquis++;   score++;    progression++;  
             document.getElementsByClassName('countersContainer')[2].innerHTML = '<p>Acquis</p>'+acquis+'/'+cardTotal;
-  
-        }else if (event.key === "ArrowLeft") {
-
+        }else if(side === 'left'){
             document.getElementsByClassName('card')[cardList[0]].style.transform = 'translateX(-150%)';
             document.getElementById('progressBar').style.transform += 'translateX('+ 100/cardTotal +'%)';
             indexEnCours.push(cardList[0]);
-            
+                    
             cardList.splice(0, 1);  enCours++;  progression++;  
             document.getElementsByClassName('countersContainer')[0].innerHTML = '<p>En cours</p>'+enCours+'/'+cardTotal;
-
         }
         document.getElementsByClassName('countersContainer')[1].innerHTML = progression+'/'+cardTotal;
-
     }else if(state){
-        if(cardList.length == 0){
-            if(indexEnCours.length == 0){
-                document.getElementById('cards').innerHTML += "<div id='endScore'><p>🎉 Bravo ! Score parfait :)</p><div><a href=''>Réessayer</a><a href='decks.php'>Essayer autre chose</a></div></div>";
-                state = false;
-            }else{
-                if(((score/cardTotal)*100) >= 30){
-                    document.getElementById('cards').innerHTML += "<div id='endScore'><p>🎉 Super ! Tu y es presque :)</p><div><a onclick='cycleCard()'>Reprendre mes erreurs</a><a href='decks.php'>Essayer autre chose</a></div></div>";
-                }else if(score==0){
-                    document.getElementById('cards').innerHTML += "<div id='endScore'><p>Ok mais sans enthousiasme</p><div><a onclick='cycleCard()'>Reprendre mes erreurs</a><a href='decks.php'>Essayer autre chose</a></div></div>";
+            if(cardList.length == 0){
+                if(indexEnCours.length == 0){
+                    document.getElementById('cards').innerHTML += "<div id='endScore'><p>🎉 Bravo ! Score parfait :)</p><div><a href=''>Réessayer</a><a href='decks.php'>Essayer autre chose</a></div></div>";
+                    state = false;
+                }else{
+                    if(((score/cardTotal)*100) >= 30){
+                        document.getElementById('cards').innerHTML += "<div id='endScore'><p>🎉 Super ! Tu y es presque :)</p><div><a onclick='cycleCard()'>Reprendre mes erreurs</a><a href='decks.php'>Essayer autre chose</a></div></div>";
+                    }else if(score==0){
+                        document.getElementById('cards').innerHTML += "<div id='endScore'><p>Ok mais sans enthousiasme</p><div><a onclick='cycleCard()'>Reprendre mes erreurs</a><a href='decks.php'>Essayer autre chose</a></div></div>";
+                    }
+                    state = false;
                 }
-                state = false;
+                
             }
-            
         }
     }
-});
+if(!isMobile()){
+    document.addEventListener("keydown", function(event) {
+        if(cardList.length > 0){
+            if (event.key === "ArrowRight") {
+
+                document.getElementsByClassName('card')[cardList[0]].style.transform = 'translateX(150%)';
+                document.getElementById('progressBar').style.transform += 'translateX('+ 100/cardTotal +'%)';
+                
+                cardList.splice(0, 1);  acquis++;   score++;    progression++;  
+                document.getElementsByClassName('countersContainer')[2].innerHTML = '<p>Acquis</p>'+acquis+'/'+cardTotal;
+    
+            }else if (event.key === "ArrowLeft") {
+
+                document.getElementsByClassName('card')[cardList[0]].style.transform = 'translateX(-150%)';
+                document.getElementById('progressBar').style.transform += 'translateX('+ 100/cardTotal +'%)';
+                indexEnCours.push(cardList[0]);
+                
+                cardList.splice(0, 1);  enCours++;  progression++;  
+                document.getElementsByClassName('countersContainer')[0].innerHTML = '<p>En cours</p>'+enCours+'/'+cardTotal;
+
+            }
+            document.getElementsByClassName('countersContainer')[1].innerHTML = progression+'/'+cardTotal;
+
+        }else if(state){
+            if(cardList.length == 0){
+                if(indexEnCours.length == 0){
+                    document.getElementById('cards').innerHTML += "<div id='endScore'><p>🎉 Bravo ! Score parfait :)</p><div><a href=''>Réessayer</a><a href='decks.php'>Essayer autre chose</a></div></div>";
+                    state = false;
+                }else{
+                    if(((score/cardTotal)*100) >= 30){
+                        document.getElementById('cards').innerHTML += "<div id='endScore'><p>🎉 Super ! Tu y es presque :)</p><div><a onclick='cycleCard()'>Reprendre mes erreurs</a><a href='decks.php'>Essayer autre chose</a></div></div>";
+                    }else if(score==0){
+                        document.getElementById('cards').innerHTML += "<div id='endScore'><p>Ok mais sans enthousiasme</p><div><a onclick='cycleCard()'>Reprendre mes erreurs</a><a href='decks.php'>Essayer autre chose</a></div></div>";
+                    }
+                    state = false;
+                }
+                
+            }
+        }
+    });
+}else {
+    mobileCard();
+}
 
 function cycleCard(){
     

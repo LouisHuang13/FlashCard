@@ -27,6 +27,7 @@
             <img src="images/tutorial.png" alt="" onclick="showTuto()">
                 <div id="tutorial">
                     <p>Pour pouvoir utiliser les flashcards, il suffit d'utiliser les fleches directionnelles ("< ; >"). Lorsque le deck est fini une pression supplémentaire est nécessaire pour finir. 🤍</p>
+                    <p>Pour pouvoir utiliser les flashcards, il suffit d'appuyer sur les boutons/compteurs 'Acquis' et 'En cours'. Lorsque le deck est fini une pression supplémentaire est nécessaire pour finir. 🤍</p>
                 </div>
                 <form method="POST">
                     <button id="favoriteButton" name="favorite"><img src="<?=$src?>" alt=""></button>
