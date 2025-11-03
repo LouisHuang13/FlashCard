@@ -2,12 +2,22 @@
 
 <nav>
     <div>
+        <?php if($_SESSION){
+            ?>
         <img src="images/burger.png" onclick="openFavorites(true)"/>
+        <?php
+        }
+        ?>
         <a href="index.php"><img src="images/logo.png" alt=""></a>
         <a href="decks.php" class="hoverLink">Les Decks</a>
     </div>
     <div>
-        <a href="createFlashCard.php" class="hoverLink">+ Créer et modifier</a>
+        <?php if($_SESSION){
+        ?>
+        <a href="createFlashCard.php" class="hoverLink">+ Créer</a>
+        <?php
+        }
+        ?>
         <?php
             if(isset($_SESSION['auth'])){
         ?>

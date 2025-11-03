@@ -12,8 +12,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Uni'Card | </title>
-    <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/deckStyle.css">
+    <link rel="stylesheet" href="styles/style.css">
     <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
 </head>
 <body>
@@ -40,6 +40,35 @@
             }
         ?>
     </section>
+    <div id="deckSettings">
+        <?php
+            if(isset($_SESSION['auth'])){
+        ?>
+            <?php 
+                if(isset($_GET['id'])){
+            ?>
+            <img src="images/tutorial.png" alt="" onclick="showTuto()">
+                <div id="tutorial">
+                    <p>Pour pouvoir utiliser les flashcards, il suffit d'utiliser les fleches directionnelles ("< ; >"). Lorsque le deck est fini une pression supplémentaire est nécessaire pour finir. 🤍</p>
+                </div>
+                <form method="POST">
+                    <button id="favoriteButton" name="favorite"><img src="<?=$src?>" alt=""></button>
+                    <input type="hidden" name="deckId" value="<?=$_GET['id']?>">
+                </form>
+                <?php 
+                    $checkUser = $bdd->prepare('SELECT author FROM unicard_decks WHERE id = ?');
+                    $checkUser->execute(array($_GET['id']));
+                    $checkUser = $checkUser->fetch();
+                    if($checkUser[0] === $_SESSION['username']){
+                ?>
+                    <form method="POST">
+                        <input type="hidden" name="deckId" value="<?=$_GET['id']?>">
+                        <button name="eraseDeck" id="eraseDeck"><img src="images/delete.png" alt=""></button>
+                    </form>
+            <?php
+            }}}
+            ?>
+    </div>
     <div id="counters">
         <div class="countersContainer"></div>
         <div class="countersContainer"></div>

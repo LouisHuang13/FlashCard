@@ -186,11 +186,11 @@ label {
 
 #mainSection > h1, #mainSection > p{
     color: #DF6252;
+    text-align: center;
 }
 
 #mainSection > p {
     width: 40%;
-    text-align: center;
 }
 
 #mainSection > button {
@@ -357,6 +357,10 @@ label {
     background-color: #DF6252; border-radius: 2dvh; color: #fafafa; font-weight: bold; 
     border: none;
 
+}
+
+#create > hr {
+    display: none;
 }
 
 #create > div:last-of-type > form button {
@@ -634,4 +638,125 @@ input[type="search"]::placeholder{
 
 #favoriteList > p:hover {
     cursor: pointer;
+}
+
+#deckSettings{
+    display: none;
+}
+
+@media screen and (max-width : 450px){
+    /* Nav */
+    nav > div:first-of-type > a > img{
+        display: none;
+
+    }
+    nav > div:last-of-type{
+        width: 50%;
+    }
+    nav > div > a, nav > div > button {
+        margin: 3%;
+    }
+    nav > div:last-of-type > button{
+        padding: 3.5%;
+     }
+    /* Main section */
+
+    #mainSection > p {
+        width: 80%;
+    }
+    #mainSection > button {
+        width: 80%;
+        padding: 4%;
+    }
+    /* Login */
+
+    #login > div {
+        width: 100%;
+    }
+    #login > button {
+        padding: 5%;
+    }
+    #searchPage > form > input[type="search"]{
+        width: 90%;
+        padding: 3.5%;
+    }
+    #decksContainer{
+        width: 90%;
+        flex-direction: column;
+    }
+    #decksContainer > a{
+        width: 100%;
+    }
+    #favoriteList {
+        width: 80%;
+    }
+
+    #favoriteList > p {
+        padding: 5%;
+    }
+
+    /* create */
+
+    #create {
+        flex-direction: column;
+    }
+    #create > div:first-of-type {
+        width: 100%;
+    }
+    #create > div:first-of-type > form > input[type="submit"] {
+        width: 100%;
+    }
+    #create > div:last-of-type {
+        width: 100%;
+    }
+    #create > div > hr {
+        display: flex;
+
+        width: 100%;
+        border: 1px solid #df63524f;
+        margin: 10%;
+    }
+    #create > div:last-of-type > form > select {
+        width: 100%;
+    }
+    #create > div:last-of-type > form > div > div {
+        width: 100%;
+    }
+    #create > div:last-of-type > form > input[type="submit"] {
+        width: 83%; left: 0;
+        padding: 4%; margin: 2%;
+    }
+
+    #counters {
+        position: absolute;
+        bottom: 10%;
+
+        padding: 5%;
+        justify-content: space-evenly;
+    }
+    #counters > div {
+        width: 100%;
+    }
+    #deckSettings {
+        width: 100%;
+        display: flex; justify-content: center; align-items: center;
+
+        position: absolute; bottom: 25%;
+    }
+    #deckSettings > img, #deckSettings > form{
+        width: 5dvh; height: 5dvh;
+        display: flex; justify-content: center; align-items: center;
+    }
+
+    nav > div:last-of-type > img, nav > div:last-of-type > form {
+        display: none;
+    }
+    #endScore {
+        width: 100%;
+        padding: 5%;
+    }
+
+    .card {
+        width: 80%;
+    }
 }

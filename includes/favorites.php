@@ -1,4 +1,6 @@
 <?php require('actions/getFavoriteAction.php');?>
+<?php if($_SESSION){
+    ?>
     <div id="favoriteList">
         <p onclick='openFavorites(false)'>X</p>
         <h4>Vos favoris</h4>
@@ -31,3 +33,6 @@
         }
         ?>
     </div>
+    <?php
+    }
+?>

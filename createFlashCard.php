@@ -35,6 +35,7 @@
             </form>
         </div>
         <div>
+            <hr>
             <form id="createDivForm" method="POST">
                 <select name="selectDeck" onchange="getDeck(this.value)">
                     <option value="">-</option>
