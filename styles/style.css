@@ -509,8 +509,8 @@ label {
 
 .linkToDeck {
     width: 100%;
-    display: flex; justify-content: center; align-items: center;
-    background-color: #DF6252; color: #fafafa; padding: 2%; border-radius: 2dvh; margin: 1%;
+    display: flex; justify-content: center; align-items: center; 
+    background-color: #DF6252; color: #fafafa; padding: 2%; border-radius: 2dvh; margin: 1% 0; font-weight: bold;
     text-decoration: none;
 }
 
