@@ -299,29 +299,29 @@ label {
 
 /* Create Flashcard */
 
-#create {
+.create {
     width: 100%; 
 
     display: flex; justify-content: space-evenly; align-items: flex-start;
 }
 
-#create h2 {
+.create h2 {
     color: #DF6252; font-size: 4rem;
     letter-spacing: -3px;
 }
 
-#create > div:first-of-type{
+.create > div:first-of-type{
     width: 30%; 
 }
 
-#create > div:last-of-type{
+.create > div:last-of-type{
     width: 70%; min-height: 100dvh;
     padding: 0 5%;
 
     display: flex; flex-direction: column; justify-content: flex-start; align-items: center;
 }
 
-#create > div:last-of-type > form > select {
+.create > div:last-of-type > form > select {
     padding: 1%;
 
     background-color: #DF6252; color: #fafafa; font-weight: bold;
@@ -329,14 +329,14 @@ label {
 }
 
 
-#create > div:first-of-type > form {
+.create > div:first-of-type > form {
     width: 100%; height: 90%;
     padding: 5%;
 
     display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
 }
 
-#create > div:first-of-type > form > input[type="text"] {
+.create > div:first-of-type > form > input[type="text"] {
     width: 100%;
     padding: 3%;
 
@@ -346,7 +346,7 @@ label {
 
 }
 
-#create > div:first-of-type > form > textarea {
+.create > div:first-of-type > form > textarea {
     width: 100%; height: 20dvh;
     padding: 3%;
 
@@ -358,9 +358,8 @@ label {
 
 }
 
-#create > div:first-of-type > form > input[type="submit"] {
+.create > div:first-of-type > form > input[type="submit"] {
 
-    width: 30%;
     padding: 5%; margin: 2% 0;
 
     background-color: #DF6252; border-radius: 2dvh; color: #fafafa; font-weight: bold; 
@@ -368,21 +367,20 @@ label {
 
 }
 
-#create > hr {
+.create > hr {
     display: none;
 }
 
-#create > div:last-of-type > form button {
+.create > div:last-of-type > form > button:first-of-type {
     position: fixed;    bottom :0; right: 0;
-    margin: 2%;
-    width: 5dvh; height: 5dvh;
+    margin: 2%; padding: 1%;
 
-    background-color: #DF6252; color:#fafafa; font-size: 1.5rem; font-weight: bold;
+    background-color: #DF6252; color:#fafafa; font-weight: bold;
     border-radius: 5dvh;
     border: none;
 }
 
-#create > div:last-of-type > form {
+.create > div:last-of-type > form {
     width: 100%; height: 85%;
 
     display: flex; flex-direction: column; justify-content: flex-start; align-items: center;
@@ -395,7 +393,7 @@ label {
     display: flex; flex-direction: column; justify-content: flex-start; align-items: center;
 }
 
-#create > div:last-of-type > form > div > div {
+.create > div:last-of-type > form > div > div {
     width: 80%; height: 25dvh;
     padding: 2%; margin: 2%;
 
@@ -405,13 +403,13 @@ label {
     display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
 }
 
-#create > div:last-of-type > div > form{
+.create > div:last-of-type > div > form{
     width: 100%;
 
     display: flex; flex-direction: column;
 }
 
-#create > div:last-of-type > form > div > div > input[type="text"] {
+.create > div:last-of-type > form > div > div > input[type="text"] {
     width: 100%;
     padding: 2%;
 
@@ -420,7 +418,7 @@ label {
     border: none;
 }
 
-#create > div:last-of-type > form > input[type="submit"] {
+.create > div:last-of-type > form > input[type="submit"] {
     position: fixed;    bottom : 0; right: 5%;
 
     width: 20%;
@@ -430,6 +428,46 @@ label {
     border: none;
 
     align-self: flex-end;
+}
+
+#chooseCreate {
+    width: 100%;
+    margin: 1% 0;
+    display: flex; justify-content: center; align-items: center;
+}
+
+#chooseCreate > button {
+    
+    width: 15%;
+    margin: 1%; padding: 1%;
+
+    background-color: #DF6252; color: #fafafa; font-weight: bold;
+    box-shadow: 0 1dvh 0 #b3493b;
+    border-radius: 5dvh; border: none;
+}
+
+#chooseCreate > button:hover {
+    transform: translateY(10%);
+    box-shadow: 0 0 0 #b3493b;
+}
+
+.create:last-of-type {
+    display: none;
+}
+
+#editClass {
+    width: 100%;
+    margin: 5% 0;
+    background-color: #fafafa; color: #DF6252; border-radius: 5dvh;
+
+    overflow: hidden;
+}
+#editClass > div { 
+    width: 100%; height: unset; text-align: unset;
+    display: flex; flex-direction: row; flex-wrap: wrap; justify-content: flex-start; align-items: flex-start;
+    
+    font-size: 1.2rem;
+    background: unset; border-radius: unset;
 }
 
 /* Flashcards */
@@ -719,33 +757,33 @@ input[type="search"]::placeholder{
 
     /* create */
 
-    #create {
+    .create {
         flex-direction: column;
     }
-    #create > div:first-of-type {
+    .create > div:first-of-type {
         width: 100%;
     }
-    #create > div:first-of-type > form > input[type="submit"] {
+    .create > div:first-of-type > form > input[type="submit"] {
         width: 100%;
     }
-    #create > div:last-of-type {
+    .create > div:last-of-type {
         width: 100%;
         padding-bottom: 30%;
     }
-    #create > div > hr {
+    .create > div > hr {
         display: flex;
 
         width: 100%;
         border: 1px solid #df63524f;
         margin: 10%;
     }
-    #create > div:last-of-type > form > select {
+    .create > div:last-of-type > form > select {
         width: 100%;
     }
-    #create > div:last-of-type > form > div > div {
+    .create > div:last-of-type > form > div > div {
         width: 100%;
     }
-    #create > div:last-of-type > form > input[type="submit"] {
+    .create > div:last-of-type > form > input[type="submit"] {
         width: 83%; left: 0;
         padding: 4%; margin: 2%;
     }
@@ -793,7 +831,7 @@ input[type="search"]::placeholder{
     #tutorial > p:last-of-type {
         display: flex;
     }
-    #create > div:last-of-type > form > select{
+    .create > div:last-of-type > form > select{
         padding: 5%;
     }
 }

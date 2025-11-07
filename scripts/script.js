@@ -1,5 +1,5 @@
 let isTuto = true;
-
+let content = "";
 let lastCard = 0;
 let cardId = 1;
 let cardTotal = document.getElementById('cardCounter').value;
@@ -67,6 +67,32 @@ function getDeck(deckId) {
     .catch(error => console.error("Erreur :", error));
 }
 
+function getCours(coursId) {
+
+    let formData = new FormData();
+    formData.append("coursId", coursId);
+    
+    fetch("actions/getCoursId.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        document.getElementsByClassName('ql-editor')[0].innerHTML = data['cours'][0]['text'];
+    })
+    .catch(error => console.error("Erreur :", error));
+}
+
+function switchCreate(par){
+    if(par === 'decks'){
+        document.getElementsByClassName('create')[0].style.display = "flex"; document.getElementsByClassName('create')[1].style.display = "none";
+    }else {
+        document.getElementsByClassName('create')[0].style.display = "none"; document.getElementsByClassName('create')[1].style.display = "flex";
+    }
+}
+
+
 
 function addCard(event){
     event.preventDefault();
@@ -96,6 +122,22 @@ function search(search) {
         for (let index = 0; index < data.decks.length; index++) {
             document.getElementById('decksContainer').innerHTML += `<a href="deck.php?id=${data.decks[index].id}"><div class="deckCard"><h3>${data.decks[index].name}</h3><p>${data.decks[index].description}</p><div><p>${data.decks[index].author}</p><p>${data.decks[index].nbCards} termes</p></div></div></a>`;
         }
+    })
+    .catch(error => console.error("Erreur :", error));
+}
+
+function searchCours(search) {
+    
+    let formData = new FormData();
+    formData.append("search", search);
+    
+    fetch("actions/searchCours.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('decksContainer').innerHTML += `<a href="deck.php?id=${data.cours[0].id}"><div class="deckCard"><h3>${data.cours[0].title}</h3><p>${data.cours[0].description}</p><div><p>${data.cours[0].author}</p></div></div></a>`;
     })
     .catch(error => console.error("Erreur :", error));
 }
@@ -208,5 +250,19 @@ function cycleCard(){
 
 }
 
+function saveContent(event, idCours){
+
+    event.preventDefault();
+    content = document.getElementsByClassName('ql-editor')[0].innerHTML;
+
+    let formData = new FormData();
+    formData.append("idCours", idCours);
+    formData.append("content", content);
+    
+    fetch("actions/saveCours.php", {
+        method: "POST",
+        body: formData
+    })
 
 
+}

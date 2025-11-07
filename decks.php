@@ -25,7 +25,6 @@
             <input type="search" name="searchBar" placeholder="Recherchez..." oninput="search(this.value)">
         </form>
         <div id="decksContainer">
-            <hr>
             <?php while($decksStart = $getAllDecksStart->fetch()){
             ?>
                 <a href='deck.php?id=<?=$decksStart['id']?>'>

@@ -10,11 +10,12 @@
         ?>
         <a href="index.php"><img src="images/logo.png" alt=""></a>
         <a href="decks.php" class="hoverLink">Les Decks</a>
+        <a href="classes.php" class="hoverLink">Les Cours</a>
     </div>
     <div>
         <?php if($_SESSION){
         ?>
-        <a href="createFlashCard.php" class="hoverLink">+ Créer</a>
+        <a href="create.php" class="hoverLink">+ Créer</a>
         <?php
         }
         ?>
