@@ -691,6 +691,26 @@ input[type="search"]::placeholder{
     display: none;
 }
 
+#infoCours {
+    width: 100%; min-height: 100dvh; 
+
+    display: flex; flex-direction: column; justify-content: flex-start; align-items: center;
+    color: #DF6252 !important;
+}
+
+#infoCours > p {
+    font-weight: bold; font-size: 1.2rem;
+}
+
+#infoCours > div {
+    width: 65%;
+    padding: 5%; margin: 3% 0;
+
+    background-color: #fefefe; border-radius: 5dvh; font-size: 1.2rem;
+    box-shadow: 0 0 1dvh rgba(78, 4, 4, 0.065);
+}
+
+
 @media screen and (max-width : 1366px){
     /* Nav */
     nav > div:first-of-type > a > img{

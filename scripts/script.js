@@ -1,5 +1,6 @@
 let isTuto = true;
 let content = "";
+let idCours = 0;
 let lastCard = 0;
 let cardId = 1;
 let cardTotal = document.getElementById('cardCounter').value;
@@ -79,6 +80,7 @@ function getCours(coursId) {
     .then(response => response.json())
     .then(data => {
         console.log(data);
+        idCours = coursId;
         document.getElementsByClassName('ql-editor')[0].innerHTML = data['cours'][0]['text'];
     })
     .catch(error => console.error("Erreur :", error));
@@ -250,7 +252,7 @@ function cycleCard(){
 
 }
 
-function saveContent(event, idCours){
+function saveContent(event){
 
     event.preventDefault();
     content = document.getElementsByClassName('ql-editor')[0].innerHTML;

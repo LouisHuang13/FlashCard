@@ -99,7 +99,7 @@
                     <div id="editor"></div>
                 </div>
                 
-                <button onclick="saveContent(event, 1)">Enregistrer le cours</button>
+                <button onclick="saveContent(event)">Enregistrer le cours</button>
             </form>
         </div>
     </section>
@@ -116,7 +116,6 @@
             [{ 'header': [1, 2, 3, false] }],
         
             [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
-            [{ 'font': [] }],
             [{ 'align': [] }],
         
             ['clean']                                         // remove formatting button

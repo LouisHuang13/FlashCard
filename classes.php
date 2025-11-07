@@ -20,12 +20,19 @@
         <div id="decksContainer">
             <?php while($coursStart = $getAllCoursStart->fetch()){
             ?>
-                <a href='classes.php?id=<?=$coursStart['id']?>'>
+                <a href='class.php?idCours=<?=$coursStart['id']?>'>
                     <div class="deckCard">
                         <h3><?=$coursStart['title']?></h3>
                         <p><?=$coursStart['description']?></p>
                         <div>
-                            <p><?=$coursStart['author']?></p>
+                            <?php
+                                $getUs = $bdd->prepare('SELECT * FROM unicard_users WHERE id = ?');
+                                $getUs->execute([$coursStart['author']]);
+                                $getUs = $getUs->fetch();
+                            ?>
+                            <p>
+                                <?=$getUs['username'];?>
+                            </p>
                         </div>
                     </div>
                 </a>
