@@ -1,4 +1,5 @@
 let isTuto = true;
+let isCard = false;
 let content = "";
 let idCours = 0;
 let lastCard = 0;
@@ -19,7 +20,6 @@ let score = 0;
 let state = true;
 
 let indexEnCours = [];
-
 
 function openLoginMenu(parameter){
     if(parameter){
@@ -45,6 +45,16 @@ function openFavorites(settings){
         document.getElementById('favoriteList').style.transform = 'unset';
     }else{
         document.getElementById('favoriteList').style.transform = 'translateX(-125%)';
+    }
+}
+
+function addCardClass(){
+    if(isCard){
+        document.getElementById('chooseCards').style.transform = 'translateY(-100dvh)';
+        isCard = false;
+    }else {
+        document.getElementById('chooseCards').style.transform = 'unset';
+        isCard = true;
     }
 }
 
@@ -89,8 +99,12 @@ function getCours(coursId) {
 function switchCreate(par){
     if(par === 'decks'){
         document.getElementsByClassName('create')[0].style.display = "flex"; document.getElementsByClassName('create')[1].style.display = "none";
+        document.getElementsByClassName('switchCreateButton')[0].style.backgroundColor = '#DF6252'; document.getElementsByClassName('switchCreateButton')[0].style.color = '#fafafa';
+        document.getElementsByClassName('switchCreateButton')[1].style.backgroundColor = '#fafafa'; document.getElementsByClassName('switchCreateButton')[1].style.color = '#DF6252';
     }else {
         document.getElementsByClassName('create')[0].style.display = "none"; document.getElementsByClassName('create')[1].style.display = "flex";
+        document.getElementsByClassName('switchCreateButton')[0].style.backgroundColor = '#fafafa'; document.getElementsByClassName('switchCreateButton')[0].style.color = '#DF6252';
+        document.getElementsByClassName('switchCreateButton')[1].style.backgroundColor = '#DF6252'; document.getElementsByClassName('switchCreateButton')[1].style.color = '#fafafa';
     }
 }
 
@@ -280,4 +294,9 @@ function saveContent(event){
     })
 
 
+}
+
+function addToClass(number, title){
+    addCardClass();
+    document.getElementsByClassName('ql-editor')[0].innerHTML += "<a href='deck.php?id="+number+"' class='linkToDeck'>"+title+"</a>";
 }

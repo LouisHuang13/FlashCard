@@ -14,18 +14,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Uni'Card | Création</title>
-    <link rel="stylesheet" href="styles/style.css">
     <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="styles/style.css">
 
 </head>
 <body>
     <?php require_once('includes/nav.php')?>
     <?php require_once('includes/favorites.php')?>
+    <?php require_once('includes/chooseCards.php')?>
     <script src="scripts/script.js"></script>
     <div id="chooseCreate">
-        <button onclick="switchCreate('decks')">Decks</button>
-        <button onclick="switchCreate('cours')">Cours</button>
+        <button onclick="switchCreate('decks')" class="switchCreateButton">Decks</button>
+        <button onclick="switchCreate('cours')" class="switchCreateButton">Cours</button>
     </div>
     <section class="create">
         <div>
@@ -59,10 +60,11 @@
                 
                 <div id="cardList">
                 </div>
-                
-                <input type="hidden" name="count" id="count" value="0">
-                <button onclick="addCard(event)">+</button>
-                <input type="submit" value="Enregistrer le deck" name="submitCards">
+                <div class="floatingButtons">
+                    <input type="hidden" name="count" id="count" value="0">
+                    <button onclick="addCard(event)">+</button>
+                    <input type="submit" value="Enregistrer le deck" name="submitCards">
+                </div>
             </form>
         </div>
     </section>
@@ -98,8 +100,10 @@
                 <div id="editClass">
                     <div id="editor"></div>
                 </div>
-                
-                <button onclick="saveContent(event)">Enregistrer le cours</button>
+                <div class="floatingButtons">
+                    <span id="addCardClass" onclick="addCardClass()">Ajouter une card</span>
+                    <button onclick="saveContent(event)">Enregistrer le cours</button>
+                </div>
             </form>
         </div>
     </section>
