@@ -6,13 +6,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 {
 
     if(isset($_POST['search']) && !empty($_POST['search'])){
-        $getAllDecks = $bdd->prepare('SELECT unicard_classes.*,  COUNT(unicard_cards.id) AS nbCards FROM unicard_decks LEFT JOIN unicard_cards ON unicard_cards.id_deck = unicard_decks.id WHERE unicard_decks.name LIKE ? GROUP BY unicard_decks.id ORDER BY unicard_decks.id DESC;');
-        $getAllDecks->execute(array('%'.$_POST['search'].'%'));
+        $getAllClasses = $bdd->prepare('SELECT unicard_classes.id, unicard_classes.title, unicard_classes.description, unicard_users.username FROM unicard_classes INNER JOIN unicard_users ON unicard_classes.author = unicard_users.id WHERE title LIKE ? ');
+        $getAllClasses->execute(array('%'.$_POST['search'].'%'));
     }else{
-        $getAllDecks = $bdd->query('SELECT unicard_decks.*, COUNT(unicard_cards.id) AS nbCards FROM unicard_decks LEFT JOIN unicard_cards ON unicard_cards.id_deck = unicard_decks.id GROUP BY unicard_decks.id ORDER BY unicard_decks.id DESC');
+        $getAllClasses = $bdd->query('SELECT unicard_classes.id, unicard_classes.title, unicard_classes.description, unicard_users.username FROM unicard_classes INNER JOIN unicard_users ON unicard_classes.author = unicard_users.id');
     }
     
-    $decks = $getAllDecks->fetchAll(PDO::FETCH_ASSOC);
-    echo json_encode(["decks" => $decks]);
+    $classes = $getAllClasses->fetchAll(PDO::FETCH_ASSOC);
+    echo json_encode(["classes" => $classes]);
 }
 ?>

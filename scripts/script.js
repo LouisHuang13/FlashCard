@@ -139,7 +139,20 @@ function searchCours(search) {
     })
     .then(response => response.json())
     .then(data => {
-        document.getElementById('decksContainer').innerHTML += `<a href="deck.php?id=${data.cours[0].id}"><div class="deckCard"><h3>${data.cours[0].title}</h3><p>${data.cours[0].description}</p><div><p>${data.cours[0].author}</p></div></div></a>`;
+        document.getElementById('decksContainer').innerHTML = "<hr>";
+        for (let i = 0; i < data.classes.length; i++) {
+            document.getElementById("decksContainer"). innerHTML += `<a href="class?idCours=${data.classes[i].id}">
+                <div class="deckCard">
+                    <h3>${data.classes[i].title}</h3>
+                    <p>
+                    ${data.classes[i].description}
+                    </p>
+                    <div>
+                        <p>${data.classes[i].username} </p>
+                    </div>
+                </div>
+                `
+        }
     })
     .catch(error => console.error("Erreur :", error));
 }

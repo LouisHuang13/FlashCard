@@ -14,6 +14,5 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     
     $decks = $getAllDecks->fetchAll(PDO::FETCH_ASSOC);
     echo json_encode(["decks" => $decks]);
-    
 }
 ?>
