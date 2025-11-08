@@ -321,7 +321,8 @@ label {
     display: flex; flex-direction: column; justify-content: flex-start; align-items: center;
 }
 
-.create > div:last-of-type > form > select {
+.create > div:last-of-type > form select {
+    min-width: 25%;
     padding: 1%;
 
     background-color: #DF6252; color: #fafafa; font-weight: bold;
@@ -372,7 +373,7 @@ label {
 }
 
 .floatingButtons {
-    width: 15%;
+    width: 25%;
     position: fixed;    bottom :0; right: 0;
     margin: 2%; 
 
@@ -384,6 +385,10 @@ label {
     background-color: #DF6252; color:#fafafa; font-weight: bold; text-align: center;
     border-radius: 5dvh;
     border: none;
+}
+
+span:hover{
+    cursor: pointer;
 }
 
 .create > div:last-of-type > form {
@@ -512,6 +517,19 @@ label {
     display: flex; justify-content: center; align-items: center; 
     background-color: #DF6252; color: #fafafa; padding: 2%; border-radius: 2dvh; margin: 1% 0; font-weight: bold;
     text-decoration: none;
+}
+
+#selectFrom {
+    width: 100%;
+    display: flex; justify-content: center; align-items: center;
+}
+
+#selectFrom > button {
+    background: none; border: none;
+}
+
+#selectFrom > button > img {
+    width: 5dvh; height: 5dvh;
 }
 
 /* Flashcards */

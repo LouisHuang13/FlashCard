@@ -2,6 +2,7 @@
     require('actions/database.php');
     require('actions/createDeckAction.php'); require('actions/createCoursAction.php');
     require('actions/createFlashCardAction.php'); 
+    require('actions/deleteCours.php'); 
 
     if($_SESSION['auth'] == false){
         header('Location: index.php');
@@ -83,25 +84,29 @@
         </div>
         <div>
             <form id="createDivForm" method="POST">
-                <select name="selectCours" onchange="getCours(this.value)">
-                    <option value="">-</option>
-                    <?php
-                        $getAllCours = $bdd->prepare('SELECT * FROM unicard_classes WHERE author = ?');
-                        $getAllCours->execute(array($_SESSION['id']));
-                        
-                        while($cours = $getAllCours->fetch()){
-                    ?>
-                        <option value="<?=$cours['id'];?>"><?=$cours['title'];?></option>
-                    <?php
-                    }
-                    ?>
-                </select>
+                <div id="selectFrom">
+                    <select name="selectCours" onchange="getCours(this.value)">
+                        <option value="">-</option>
+                        <?php
+                            $getAllCours = $bdd->prepare('SELECT * FROM unicard_classes WHERE author = ?');
+                            $getAllCours->execute(array($_SESSION['id']));
+                            
+                            while($cours = $getAllCours->fetch()){
+                        ?>
+                            <option value="<?=$cours['id'];?>"><?=$cours['title'];?></option>
+                        <?php
+                        }
+                        ?>
+                    </select>
+                    <input type="hidden" name="deleteValue" value="" id="deleteValue">
+                    <button name="delete"><img src="images/delete.png" alt=""></button>
+                </div>
                 
                 <div id="editClass">
                     <div id="editor"></div>
                 </div>
                 <div class="floatingButtons">
-                    <span id="addCardClass" onclick="addCardClass()">Ajouter une card</span>
+                    <span id="addCardClass" onclick="addCardClass()">Ajouter un deck au cours</span>
                     <button onclick="saveContent(event)">Enregistrer le cours</button>
                 </div>
             </form>

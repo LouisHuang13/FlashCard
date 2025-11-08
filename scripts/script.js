@@ -92,6 +92,7 @@ function getCours(coursId) {
         console.log(data);
         idCours = coursId;
         document.getElementsByClassName('ql-editor')[0].innerHTML = data['cours'][0]['text'];
+        document.getElementById('deleteValue').value = data['cours'][0]['id'];
     })
     .catch(error => console.error("Erreur :", error));
 }
